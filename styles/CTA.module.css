@@ -1,0 +1,106 @@
+.main {
+  max-width: 1200px;
+  padding: 1em;
+  margin: auto;
+  font-family: "PT Sans", sans-serif;
+  line-height: 1.5em;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+
+.cta_title {
+  text-align: left;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 1.5em;
+  margin-top: 1rem;
+  color: var(--primary_color);
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+}
+
+.steps {
+  display: none;
+}
+
+.message {
+  line-height: 1.6;
+}
+
+.category {
+  display: none;
+}
+
+.description {
+  display: none;
+}
+
+@media (min-width: 550px) {
+  .main {
+    height: 47vh;
+  }
+  .cta_title {
+    font-weight: 500;
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .main {
+    height: 90vh;
+    padding: 0;
+  }
+
+  .cta_title {
+    font-weight: 600;
+    font-size: 30px;
+  }
+
+  .steps {
+    display: block;
+    font-size: larger;
+    font-weight: 550;
+  }
+
+  .category {
+    display: inline;
+  }
+
+  .description {
+    display: block;
+    line-height: 1.6;
+  }
+
+  .ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .li {
+    text-decoration: none;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 1281px) {
+  .main {
+    height: 40vh;
+  }
+  .cta_title {
+    margin-top: 0px;
+  }
+  .message {
+    line-height: 1.6;
+    font-size: 1.1em;
+  }
+
+  .li {
+    text-decoration: none;
+  }
+
+  .description {
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1.1em;
+  }
+}

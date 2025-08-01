@@ -1,0 +1,32 @@
+/* main blue  #1e90ff; */
+/* main yellow #F7CA00 */
+
+/* Breakpoints */
+/* Bootstrap – 576px, 768px, 992px, and 1200px */
+
+:root {
+  --primary_color: #1d3557;
+  /* --secondary_color: #457B9D; */
+  --secondary_color: #272c52;
+  --tertiary_color: #a8dadc;
+  --quaternery_color: #f1faee;
+  --contrast_color: #e63946;
+  scroll-behavior: "smooth";
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

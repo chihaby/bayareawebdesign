@@ -1,0 +1,46 @@
+/* 1st orange #fcad5d */
+/* 2nd orange #F8AE60 */
+/* 3rd orange #FFBE59; */
+/* 4rd orange #FEBF5D; */
+/* main blue  #1e90ff; */
+/* main yellow #F7CA00 */
+/* purple #525099; */
+/* blue #3F77EC; */
+/* 2nd blue #37A4F6 */
+/* yellow #F9A826 */
+/* fb yellow #F8C03E */
+.cta_link {
+  width: 200px;
+  font-size: large;
+  font-weight: 600;
+  padding: 1em;
+  cursor: pointer;
+  box-shadow: none;
+  /* background-color: var(--contrast_color); */
+  background-color: #d12e14;
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 769px) {
+  .cta_link:hover {
+    background-color: white;
+    color: var(--contrast_color);
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 1281px) {
+  .cta_link {
+    font-size: large;
+    margin-bottom: 100px;
+    font-weight: 650;
+    padding: 1em;
+    border-radius: 4px;
+  }
+
+  .cta_link:hover {
+    background-color: white;
+    color: var(--contrast_color);
+  }
+}

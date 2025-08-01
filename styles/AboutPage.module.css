@@ -1,0 +1,28 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1em;
+}
+
+.title {
+  text-align: left;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.5em;
+  margin-left: 0px;
+  margin-bottom: 1em;
+  color: var(--primary_color);
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+}
+
+.photo {
+  margin: 'auto';
+  width: '18rem'
+}
+
+@media (min-width: 550px) {
+  .photo {
+    float: left;
+  }
+}

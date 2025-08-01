@@ -1,0 +1,97 @@
+move images to public folder
+Add navigation to footer
+onClick useRef
+Change font  
+Change color theme
+Style thank you page
+
+    For Mobile Devices – 320px — 480px.
+    iPads and Tablets – 481px — 768px.
+    Laptops and small screen – 769px — 1024px.
+    Large screens and Desktops – 1025px — 1200px.
+    TV and Extra Large Screens – 1201px and more.
+
+    
+    Laptop min-width: 820px
+    Desktops min-width: 1281px
+
+ 
+iPad Pro 10.5-inch		1112 x 834
+iPad Pro (12.9-inch)	1024 x 1366
+iPad Pro (9.7-inch)	    768 x 1024
+iPad Air 2	            768 x 1024
+
+    Mobile devices – 320px — 480px.
+    iPads, Tablets – 481px — 768px.
+    Small screens, laptops – 769px — 1024px.
+    Desktops, large screens – 1025px — 1200px.
+    Extra large screens, TV – 1201px, and more.
+
+
+
+    550 1025 1281
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Unused CTA
+        <Col sm={12} md={6}>
+          <h3 className={styles.steps}>Featured Websites</h3>
+          <br />
+          <div className={styles.ul}>
+            <div className={styles.li}>
+              <a
+                href="https://client-custom-website.netlify.app/"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.category}
+              >
+                • Client
+              </a>
+              <br />
+              <p className={styles.description}>
+                Perfect platform to showcase your skills and connect with
+                potential clients.
+                <br />
+              </p>{" "}
+            </div>
+            <br />
+            <div className={styles.li}>
+              <a
+                href="https://blitzdetail.com/"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.category}
+              >
+                • Business
+              </a>{" "}
+              <br />
+              <p className={styles.description}>
+                Tailored solutions to meet specific business needs. Perfect for
+                showcasing products and services.
+              </p>
+            </div>{" "}
+            <br />
+            {/* <h3 className={styles.steps}>Custom Websites </h3>
+          <div>
+            <div className={styles.category}>• Starting price $1500</div>
+            <p className={styles.description}>
+              Unique and personalized websites that perfectly fits your business goals and effectively engages your target audience. <br />
+            </p>
+          </div>{' '} */}
+          </div>
+        </Col>

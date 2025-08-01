@@ -1,0 +1,55 @@
+.container {
+  max-width: 1200px;
+  padding: 0.5em;
+  margin: auto;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  word-wrap: break-word;
+  text-transform: none;
+  font-family: "PT Sans", sans-serif;
+}
+.title {
+  text-align: left;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.5em;
+  margin-left: 0px;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: var(--primary_color);
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+}
+
+.more {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  color: var(--primary_color);
+  margin-bottom: 1em;
+}
+
+@media (min-width: 1025px) {
+  .container {
+    height: 125vh;
+    padding: 0;
+  }
+
+  .title {
+    font-weight: 600;
+    margin-left: 0px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+  }
+}
+
+@media (min-width: 1281px ) {
+  .container {
+    height: 80vh;
+  }
+  .title {
+    font-size: 30px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+  }
+}

@@ -1,0 +1,98 @@
+.container {
+  padding-bottom: 50px;
+  background-color: var(--secondary_color);
+  color: white;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5em;
+  font-size: 1.1em;
+  word-wrap: break-word;
+  text-transform: none;
+  font-family: "PT Sans", sans-serif;
+}
+
+.title {
+  padding-top: 1rem;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.5em;
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+}
+
+.icon {
+  display: block;
+  text-align: center;
+  background-color: white;
+  padding: 16px;
+  border-radius: 4%;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 4em;
+}
+
+@media (min-width: 550px) {
+  .container {
+    height: 75vh;
+    text-align: left;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .icon {
+    display: block;
+    padding: 35px;
+  }
+
+  .description {
+    margin-bottom: 4em;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .container {
+    height: 200vh;
+    padding: 0;
+  }
+  .title {
+    text-align: left;
+    margin-bottom: -20px;
+    padding-top: 5rem;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.5em;
+    font-family: "Merriweather", serif;
+    text-transform: uppercase;
+  }
+
+  .icon {
+    display: block;
+    margin-bottom: 40px;
+    height: 220px;
+    margin-bottom: 50px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1281px) {
+  .container {
+    height: 130vh;
+  }
+  .title {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    margin-left: 0px;
+  }
+
+  .item_title {
+    margin-bottom: 10px;
+  }
+}
