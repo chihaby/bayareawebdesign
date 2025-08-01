@@ -6,7 +6,7 @@ import CtaLink from "./CtaLink";
 
 const Hero = () => {
   return (
-    <div style={{ backgroundColor: "#252324" }}>
+    <div className={styles.main}>
       <div className={styles.hero_section}>
         <div className={styles.left_side}>
           <h2 className={styles.strapline}>
@@ -31,6 +31,7 @@ const Hero = () => {
           />
         </div>
       </div>
+      {/* <div className={styles.bottom_section}></div> */}
     </div>
   );
 };
