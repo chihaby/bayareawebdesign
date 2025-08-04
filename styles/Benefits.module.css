@@ -1,8 +1,7 @@
 .container {
   padding-bottom: 50px;
   background-color: var(--secondary_color);
-  color: white;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   padding: 1em;
   line-height: 1.5em;
@@ -24,7 +23,7 @@
 .icon {
   display: block;
   text-align: center;
-  background-color: white;
+  /* background-color: white; */
   padding: 16px;
   border-radius: 4%;
   margin-bottom: 16px;
@@ -58,7 +57,7 @@
 /* Desktop */
 @media (min-width: 1025px) {
   .container {
-    height: 200vh;
+    height: 170vh;
     padding: 0;
   }
   .title {
