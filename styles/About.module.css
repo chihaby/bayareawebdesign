@@ -1,5 +1,5 @@
 .container {
-  max-width: 1200px;
+  max-width: 999px;
   padding: 0.5em;
   margin: auto;
   font-size: 1.1em;
@@ -56,6 +56,7 @@
 @media (min-width: 1281px) {
   .container {
     height: 40vh;
+    max-width: 1200px;
   }
   .title {
     font-size: 30px;

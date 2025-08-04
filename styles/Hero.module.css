@@ -7,12 +7,10 @@
   display: flex;
   flex-direction: column;
   padding: 2em;
-  background-color: #252324;
 }
 .image_hero {
   display: none;
 }
-
 .left_side {
   text-align: center;
   line-height: 1.6em;
@@ -25,23 +23,18 @@
 .strapline {
   font-size: 21px;
   font-weight: bold;
-
-  /* color: #222222; */
   color: white;
   font-family: "Merriweather", serif;
 }
-
 .paragraph {
   font-size: 1.2rem;
   font-weight: normal;
   color: #444444;
 }
-
 .cta_button {
   margin: auto;
   text-align: center;
 }
-
 @media (min-width: 550px) {
   .hero_section {
     display: flex;
@@ -54,7 +47,6 @@
     text-align: left;
     margin-top: 20px;
   }
-
   .image_hero {
     width: 100%;
     display: block;
@@ -68,17 +60,6 @@
     flex-basis: 45%;
     padding: 2rem;
   }
-
-  .image_hero {
-    display: block;
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    flex-basis: 40%;
-    padding-top: 6rem;
-  }
-
   .strapline {
     font-size: 27px;
     font-weight: 600;
@@ -86,16 +67,11 @@
     padding: 0;
     justify-content: left;
     text-align: left;
-    /* color: #222222; */
     color: white;
   }
-
   .paragraph {
     line-height: 1.6;
-    /* color: #444444; */
-    color: white;
   }
-
   .image_hero {
     display: block;
     position: relative;
@@ -104,7 +80,7 @@
     background-position: center center;
     flex-basis: 48%;
     min-height: 12rem;
-    margin-top: -30px;
+    margin-top: 50px;
   }
 }
 
@@ -113,7 +89,7 @@
     position: relative;
   }
   .hero_section {
-    height: 65vh;
+    height: 85vh;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -122,12 +98,10 @@
     padding: 50px;
     margin: auto;
   }
-
   .left_side {
     flex-basis: 60%;
     margin-top: -17px;
   }
-
   .strapline {
     font-size: 39px;
     font-weight: 600;
@@ -136,13 +110,11 @@
     padding: 0;
     margin-bottom: 20px;
   }
-
   .paragraph {
     font-size: 20px;
     line-height: 1.6;
     color: white;
   }
-
   .image_hero {
     position: absolute;
     background-size: cover;
@@ -151,14 +123,8 @@
     flex-basis: 35%;
     z-index: 1;
     left: 800px;
-    top: 50px;
+    /* top: 50px; */
   }
-  /* .bottom_section {
-    position: absolute;
-    background-color: rgb(155, 128, 128);
-    height: 70px;
-    bottom: 2000px;
-  } */
 }
 
 /* Full size display */

@@ -242,7 +242,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className={styles.copyright}>
-            <p> Copyright &copy; 2025 - Website Remedy</p>
+            <p> Copyright &copy; 2025 - Bay Area Web Design</p>
           </div>
         </div>
       </footer>

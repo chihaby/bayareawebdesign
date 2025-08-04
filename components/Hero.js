@@ -31,7 +31,6 @@ const Hero = () => {
           />
         </div>
       </div>
-      {/* <div className={styles.bottom_section}></div> */}
     </div>
   );
 };

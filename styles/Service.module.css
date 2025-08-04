@@ -1,34 +1,35 @@
+/* Base styles (Mobile first) */
+
 .container {
-  height: 210vh;
-  /* background-color: #252324; */
-  /* background-color: #F8F6F1; */
-  background-color: #E0E8E7;
-  /* background-color: #B9C0C1; */
+  max-width: 999px;
   margin: auto;
   padding: 1em;
+  height: 210vh;
+  background-color: #fafafa;
+  font-family: "PT Sans", sans-serif;
   line-height: 1.5em;
   word-wrap: break-word;
   text-transform: none;
-  font-family: "PT Sans", sans-serif;
-}
-
-.main {
-  font-size: 1.1em;
-  background-color: var(--secondary_color);
 }
 
 .models {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: nowrap;
 }
 
 .models_main_title {
-  text-align: center;
+  font-family: "PT Sans", sans-serif; /* fallback */
   font-size: 22px;
   font-weight: 450;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
+  text-align: center;
+  line-height: normal;
+  text-transform: none;
 }
 
 .paragraph {
@@ -37,185 +38,122 @@
 
 .model_item {
   padding: 1.2rem;
+  width: 100%; /* full width on mobile */
+  box-sizing: border-box;
 }
 
 .model_link {
   display: block;
   overflow: hidden;
-  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1); */
+  color: inherit;
 }
 
 .model_title {
   font-size: 25px;
   font-weight: 500;
   line-height: 1.2;
+  margin: 25px 0 20px;
   text-align: center;
-  margin-top: 25px;
-  margin-bottom: 20px;
 }
 
 .model_text {
+  margin: 25px 0;
   text-align: center;
-  margin-top: 25px;
-  margin-bottom: 25px;
 }
 
 .model_description {
   font-size: 12px;
   line-height: 1.4;
   margin-top: 10px;
-}
-
-.model_visit {
-  font-weight: normal;
-  font-size: 12px;
   text-align: center;
 }
 
-.cta_link {
-  margin-top: 70px;
-  justify-content: center;
+.model_visit {
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
 }
 
-/* Tablet */
-@media (min-width: 550px) {
+/* Tablet Portrait & Landscape (576px - 1023px) */
+
+@media (min-width: 576px) {
   .container {
     height: 150vh;
   }
-  .main {
-    max-width: 1200px;
-    margin: auto;
-    font-size: 1.1em;
-  }
-
   .models {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: flex-start;
     text-align: center;
-    /* background-color: #E0E8E7; */
   }
-
   .models_main_title {
-    text-align: left;
+    font-family: "Merriweather", serif;
     font-weight: 500;
     font-size: 25px;
     line-height: 1.5em;
-    margin-left: 0px;
-    font-family: "Merriweather", serif;
+    margin: 0 0 30px 0;
+    text-align: left;
     text-transform: uppercase;
   }
   .model_item {
-    width: 500px;
-    height: 500px;
+    box-sizing: border-box;
   }
-  .model_link {
-    display: block;
-    /* box-shadow: 0px 3px 12px rgba(255, 255, 255, 0.1); */
-    text-decoration: none !important;
+  .model_title {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 1.3rem 0;
+    margin: 0;
+    text-align: center;
   }
   .model_text {
     margin-top: 10px;
   }
-  .model_title {
-    font-size: 22px;
-    padding: 1.3rem;
-    text-align: center;
-    text-decoration: inherit;
-    margin: 0;
-  }
   .model_description {
     font-size: 0.8rem;
-    justify-content: center;
+    text-align: center;
   }
 }
 
-/* Laptop */
-@media (min-width: 1025px) {
+/* Laptop (1024px - 1280px) */
+
+@media (min-width: 1024px) {
   .container {
-    height: 130vh;
-  }
-  .h2 {
-    text-align: left;
-    margin: 0;
-    padding: none;
+    height: 95vh;
+    display: flex;
   }
   .models {
-    background-color: #f0f3f3;
-    max-width: 1000px;
+    max-width: 999px;
     justify-content: center;
-    text-align: center;
-  }
-  .model_item{
-    display: flex;
     align-items: center;
-    justify-content: center;
   }
   .models_main_title {
-    margin: 0;
-    margin-bottom: 1rem;
-    margin-top: 1em;
+    font-size: 28px;
     font-weight: 600;
-    font-size: 30px;
   }
-  .paragraph_right {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .paragraph_left {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .model_item:hover {
-    transform: scale(1.05);
-  }
-
   .model_link {
-    display: block;
-    border-radius: 0.3125rem;
-    overflow: hidden;
-    /* box-shadow: 0px 3px 12px rgba(255, 255, 255, 0.15); */
-    transition: all 150ms ease-in-out;
-    text-align: center;
+    text-decoration: none;
+    color: black;
   }
-
-  .model_text {
-    padding: 1.875rem 1.875rem 2.5rem 1.875rem;
-
+  .model_title {
+    font-weight: 700; /* bold */
   }
-
-  .model_author {
-    font-size: 0.8rem;
-    margin-bottom: 0.75rem;
-
-  }
-
-  .model_pricing {
-    font-size: 1.0625rem;
-    line-height: 1.2;
-
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .model_sale {
-    text-decoration: line-through;
-    color: var(--tertiary_color);
-  }
-
-  .model_description {
-    font-size: 0.8125rem;
+  .model_image {
+    display: flex;
     justify-content: center;
-    margin: 0;
+  }
+  .model_description {
+    padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+    text-align: center;
   }
 }
+
+/* Desktop (1281px and up) */
 
 @media (min-width: 1281px) {
   .container {
-    height: 100vh;
+    height: 60vh;
+    max-width: 1200px;
   }
 }
