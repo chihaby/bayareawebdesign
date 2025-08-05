@@ -9,7 +9,6 @@
   text-transform: none;
   font-family: "PT Sans", sans-serif;
 }
-
 .title {
   padding-top: 1rem;
   font-weight: 500;
@@ -18,7 +17,6 @@
   font-family: "Merriweather", serif;
   text-transform: uppercase;
 }
-
 .icon {
   display: block;
   text-align: center;
@@ -27,37 +25,33 @@
   border-radius: 4%;
   margin-bottom: 16px;
 }
-
 .description {
   font-size: 16px;
   margin-bottom: 4em;
 }
-
 @media (min-width: 550px) {
   .container {
     height: 75vh;
     text-align: left;
     max-width: 999px;
   }
-
   .title {
     text-align: left;
   }
-
   .icon {
     display: block;
     padding: 35px;
+    margin: auto;
   }
 
   .description {
     margin-bottom: 4em;
   }
 }
-
 /* Desktop */
 @media (min-width: 1025px) {
   .container {
-    height: 200vh;
+    height: 180vh;
     padding: 0;
     max-width: 999px;
   }
@@ -71,19 +65,15 @@
     font-family: "Merriweather", serif;
     text-transform: uppercase;
   }
-
   .icon {
     display: block;
-    margin-bottom: 40px;
     height: 220px;
-    margin-bottom: 50px;
   }
 }
-
 /* Desktop */
 @media (min-width: 1281px) {
   .container {
-    height: 130vh;
+    height: 115vh;
     max-width: 1200px;
   }
   .title {
@@ -92,7 +82,6 @@
     margin: 2rem 0 1rem 0;
     margin-left: 0px;
   }
-
   .item_title {
     margin-bottom: 10px;
   }

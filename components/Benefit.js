@@ -1,24 +1,32 @@
 import styles from "../styles/Benefits.module.css";
 import Image from "next/image";
-// import design from "../public/assets/svg/design.svg";
-import ux from "../public/assets/svg/ux.svg";
-import performance from "../public/assets/svg/performance.svg";
-import axe from "../public/assets/svg/axe.svg";
-// import copy from '../public/assets/svg/copy.svg';
+import ui from "../public/img/svg/ui.svg";
+import dev from "../public/img/svg/webdev.svg";
+import api from "../public/img/svg/api.svg";
+import axe from "../public/img/svg/axe.svg";
+// import seo from "../public/img/svg/seo.svg";
+import logo from "../public/img/svg/logo.svg";
+import copy from "../public/img/svg/copy.svg";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 const Benefit = () => {
   return (
-    // <div style={{ backgroundColor: "#E0E8E7" }}>
     <div style={{ backgroundColor: "#FAFAFA" }}>
       <div className={styles.container}>
         <h2 className={styles.title}>What We Do</h2>
         <br />
-        <Row style={{ padding: "16px" }}>
+        <Row>
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
-              <Image src={ux} alt="performance" width={120} height={150} />
+              <Image
+                src={ui}
+                alt="performance"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
+              />
             </div>
             <div
               className={styles.item_title}
@@ -39,10 +47,12 @@ const Benefit = () => {
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
               <Image
-                src={performance}
-                alt="performance"
-                width={120}
-                height={150}
+                src={dev}
+                alt="web development"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
               />
             </div>
             <div
@@ -63,7 +73,14 @@ const Benefit = () => {
           </Col>
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
-              <Image src={axe} alt="features" width={120} height={150} />
+              <Image
+                src={api}
+                alt="search engine optimization"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
+              />
             </div>
             <div
               className={styles.item_title}
@@ -73,12 +90,12 @@ const Benefit = () => {
                 textAlign: "center",
               }}
             >
-              Accessibility
+              API intergration
             </div>
             <br />
             <div className={styles.description}>
-              100% compliant with the legal requirements and accessibility
-              standards {"(WCAG)"}
+              Increased user satisfaction, improved navigation, enhanced
+              customer loyalty and retention.
             </div>
           </Col>
         </Row>
@@ -86,10 +103,12 @@ const Benefit = () => {
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
               <Image
-                src={performance}
-                alt="performance"
-                width={120}
-                height={150}
+                src={copy}
+                alt="writing for the web"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
               />
             </div>
             <div
@@ -110,7 +129,14 @@ const Benefit = () => {
           </Col>
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
-              <Image src={ux} alt="performance" width={120} height={150} />
+              <Image
+                src={axe}
+                alt="accessibility"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
+              />
             </div>
             <div
               className={styles.item_title}
@@ -120,17 +146,24 @@ const Benefit = () => {
                 textAlign: "center",
               }}
             >
-              SEO
+              Accessibility
             </div>
             <br />
             <div className={styles.description}>
-              Increased user satisfaction, improved navigation, enhanced
-              customer loyalty and retention.
+              100% compliant with the legal requirements and accessibility
+              standards {"(WCAG)"}
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
-              <Image src={axe} alt="features" width={120} height={150} />
+              <Image
+                src={logo}
+                alt="logo design"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
+              />
             </div>
             <div
               className={styles.item_title}
