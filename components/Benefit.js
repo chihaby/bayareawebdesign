@@ -31,7 +31,7 @@ const Benefit = () => {
             <div
               className={styles.item_title}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 textAlign: "center",
               }}
@@ -58,7 +58,7 @@ const Benefit = () => {
             <div
               className={styles.item_title}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 textAlign: "center",
               }}
@@ -85,7 +85,7 @@ const Benefit = () => {
             <div
               className={styles.item_title}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 textAlign: "center",
               }}
@@ -114,7 +114,7 @@ const Benefit = () => {
             <div
               className={styles.item_title}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 textAlign: "center",
               }}
@@ -141,7 +141,7 @@ const Benefit = () => {
             <div
               className={styles.item_title}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 textAlign: "center",
               }}
@@ -168,7 +168,7 @@ const Benefit = () => {
             <div
               className={styles.item_title}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 textAlign: "center",
               }}

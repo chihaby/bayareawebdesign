@@ -20,7 +20,6 @@ const Hero = () => {
           <br />
           <CtaLink />
         </div>
-
         <div className={styles.image_hero}>
           <Image
             src={Rad}
