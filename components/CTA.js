@@ -17,7 +17,7 @@ const CTA = () => {
         <p className={styles.message}>
           Give me a call{" "}
           <a>
-            {"("}510{")"} 630-Nine741
+            {"("}510{")"} 630-9741
           </a>
           <br />
           Or send me a message in the form below.

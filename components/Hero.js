@@ -10,7 +10,7 @@ const Hero = () => {
       <div className={styles.hero_section}>
         <div className={styles.left_side}>
           <h2 className={styles.strapline}>
-            Web Development Solution for Your Business.
+            Web Design and Development for Businesses, and professionals.
           </h2>
           <p className={styles.paragraph}>
             Empower your online presence with a website that is built for

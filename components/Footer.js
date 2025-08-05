@@ -190,7 +190,7 @@ const Footer = () => {
                 <i className="fa fa-phone"> PHONE</i>
               </span>
               <br />
-              {" +1 510 630 Nine741"}
+              {" +1 510 630 9741"}
             </p>
           </div>
           <div className={styles.contact_email}>
@@ -209,7 +209,7 @@ const Footer = () => {
                   borderRadius: "5px",
                 }}
               >
-                WebsiteRemedy.info@gmail.com
+                rad@bayareawebdesign.services
               </a>
             </p>
           </div>
@@ -242,7 +242,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className={styles.copyright}>
-            <p> Copyright &copy; 2025 - Bay Area Web Design</p>
+            <p> Copyright &copy; 2025 BayAreaWebDesign.Services</p>
           </div>
         </div>
       </footer>
