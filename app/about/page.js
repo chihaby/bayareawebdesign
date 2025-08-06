@@ -1,11 +1,13 @@
-import Navbar from "../components/Navbar";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Footer from "../components/Footer";
-import Rad from "../public/img/Rad.jpg";
-import Image from "next/image";
-import styles from "../styles/AboutPage.module.css";
+'use client';
+import Navbar from '../../components/Navbar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import CardBody from 'react-bootstrap/CardBody';
+import Footer from '../../components/Footer';
+import Rad from '../../public/img/Rad.jpg';
+import Image from 'next/image';
+import styles from '../../styles/AboutPage.module.css';
 
 const about = () => {
   return (
@@ -19,12 +21,12 @@ const about = () => {
         <br />
         <Row>
           <Col>
-            <Card style={{ width: "18rem" }}>
-              <Image src={Rad} width={285} height={285} alt="profile photo" />
-              <Card.Body>
+            <Card style={{ width: '18rem' }}>
+              <Image src={Rad} width={285} height={285} alt='profile photo' />
+              <CardBody>
                 <Card.Title>Rad</Card.Title>
                 <Card.Text>Web developer, UI/UX specialist.</Card.Text>
-              </Card.Body>
+              </CardBody>
             </Card>
           </Col>
           <Col>

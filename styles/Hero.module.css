@@ -89,7 +89,7 @@
     position: relative;
   }
   .hero_section {
-    height: 85vh;
+    height: 75vh;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -111,7 +111,7 @@
     margin-bottom: 20px;
   }
   .paragraph {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.6;
     color: white;
   }

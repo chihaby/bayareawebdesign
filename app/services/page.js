@@ -1,20 +1,21 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Image from "next/image";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer.js";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
-import blitz from "../public/img/blitz.png";
-import pizza from "../public/img/pizza.png";
+'use client';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Image from 'next/image';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer.js';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import blitz from '../../public/img/blitz.png';
+import pizza from '../../public/img/pizza.png';
 // import oceo from "../public/img/oceo.png";
-import ebpt from "../public/img/ebpt.png";
+import ebpt from '../../public/img/ebpt.png';
 // import cafelisbon from "../public/img/cafelisbon.png";
-import landingpage from "../public/img/landingpage.png";
-import mn from "../public/img/mn.png";
-import about from "../public/img/about.png";
-import styles from "../styles/ServicePage.module.css";
+import landingpage from '../../public/img/landingpage.png';
+import mn from '../../public/img/mn.png';
+import about from '../../public/img/about.png';
+import styles from '../../styles/ServicePage.module.css';
 
 const services = () => {
   return (
@@ -26,29 +27,29 @@ const services = () => {
         <h1 className={styles.title}>Services</h1>
         <hr />
         <Tabs
-          defaultActiveKey="home"
-          id="justify-tab-example"
-          className="mb-3"
+          defaultActiveKey='home'
+          id='justify-tab-example'
+          className='mb-3'
           justify
-          variant="dark"
+          variant='dark'
         >
-          <Tab eventKey="home" title="Business" color="red">
+          <Tab eventKey='home' title='Business' color='red'>
             <br />
             <br />
-            <Row className="justify-content-md-center">
+            <Row className='justify-content-md-center'>
               <Col sm={12} md={4} lg={3}>
                 <a
-                  href="https://www.blitzdetail.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#444444" }}
+                  href='https://www.blitzdetail.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ textDecoration: 'none', color: '#444444' }}
                 >
                   <div>
                     <Card>
                       <Image
-                        variant="top"
+                        variant='top'
                         src={blitz}
-                        alt="photo of blitzdetail website hero section"
+                        alt='photo of blitzdetail website hero section'
                         width={270}
                         height={200}
                       />
@@ -61,9 +62,9 @@ const services = () => {
                       </Card.Body>
                       <Card.Body>
                         <Card.Link
-                          href="https://www.blitzdetail.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href='https://www.blitzdetail.com/'
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           Visit
                         </Card.Link>
@@ -74,16 +75,16 @@ const services = () => {
               </Col>
               <Col sm={12} md={4} lg={3}>
                 <a
-                  href="https://ebpt-rads-projects-304e987f.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#444444" }}
+                  href='https://ebpt-rads-projects-304e987f.vercel.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ textDecoration: 'none', color: '#444444' }}
                 >
                   <div>
                     <Card>
                       <Image
                         src={ebpt}
-                        alt="East Bay Paratransit bus"
+                        alt='East Bay Paratransit bus'
                         width={270}
                         height={200}
                       />
@@ -95,9 +96,9 @@ const services = () => {
                       </Card.Body>
                       <Card.Body>
                         <Card.Link
-                          href="https://ebpt-rads-projects-304e987f.vercel.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href='https://ebpt-rads-projects-304e987f.vercel.app/'
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           Visit
                         </Card.Link>
@@ -108,21 +109,21 @@ const services = () => {
               </Col>
               <Col sm={12} md={4} lg={3}>
                 <a
-                  href="https://downtownpizza.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#444444" }}
+                  href='https://downtownpizza.netlify.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ textDecoration: 'none', color: '#444444' }}
                 >
                   <div>
                     <Card>
                       <Image
                         src={pizza}
-                        alt="photo of slicks pizza shop website"
+                        alt='photo of slicks pizza shop website'
                         width={270}
                         height={200}
                       />
                       <Card.Body>
-                        <Card.Title>{"Slick Slices"}</Card.Title>
+                        <Card.Title>{'Slick Slices'}</Card.Title>
                         <Card.Text>
                           Restaurant model featuring menu, daily special and
                           order submition
@@ -130,9 +131,9 @@ const services = () => {
                       </Card.Body>
                       <Card.Body>
                         <Card.Link
-                          href="https://downtownpizza.netlify.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href='https://downtownpizza.netlify.app/'
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           Visit
                         </Card.Link>
@@ -179,23 +180,23 @@ const services = () => {
             </Row>
           </Tab>
 
-          <Tab eventKey="profile" title="Personal">
+          <Tab eventKey='profile' title='Personal'>
             <br />
             <br />
-            <Row className="justify-content-md-center">
+            <Row className='justify-content-md-center'>
               <Col sm={12} md={4} lg={3}>
                 <a
-                  href="https://client-custom-website.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#444444" }}
+                  href='https://client-custom-website.netlify.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ textDecoration: 'none', color: '#444444' }}
                 >
                   <div>
                     <Card>
                       <Image
-                        variant="top"
+                        variant='top'
                         src={about}
-                        alt="portfolio website"
+                        alt='portfolio website'
                         width={270}
                         height={200}
                       />
@@ -208,9 +209,9 @@ const services = () => {
                       </Card.Body>
                       <Card.Body>
                         <Card.Link
-                          href="https://client-custom-website.netlify.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href='https://client-custom-website.netlify.app/'
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           Visit
                         </Card.Link>
@@ -222,17 +223,17 @@ const services = () => {
 
               <Col sm={12} md={4} lg={3}>
                 <a
-                  href="https://client-custom-website.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#444444" }}
+                  href='https://client-custom-website.netlify.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ textDecoration: 'none', color: '#444444' }}
                 >
                   <div>
                     <Card>
                       <Image
-                        variant="top"
+                        variant='top'
                         src={landingpage}
-                        alt="landing page website"
+                        alt='landing page website'
                         width={270}
                         height={200}
                       />
@@ -245,9 +246,9 @@ const services = () => {
                       </Card.Body>
                       <Card.Body>
                         <Card.Link
-                          href="https://client-custom-website.netlify.app/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href='https://client-custom-website.netlify.app/'
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           Visit
                         </Card.Link>
@@ -259,17 +260,17 @@ const services = () => {
 
               <Col sm={12} md={4} lg={3}>
                 <a
-                  href="https://mediterranean.band/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#444444" }}
+                  href='https://mediterranean.band/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  style={{ textDecoration: 'none', color: '#444444' }}
                 >
                   <div>
                     <Card>
                       <Image
-                        variant="top"
+                        variant='top'
                         src={mn}
-                        alt="mediterranean nights azure"
+                        alt='mediterranean nights azure'
                         width={270}
                         height={200}
                       />
@@ -282,9 +283,9 @@ const services = () => {
                       </Card.Body>
                       <Card.Body>
                         <Card.Link
-                          href="https://mediterranean.band/"
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href='https://mediterranean.band/'
+                          target='_blank'
+                          rel='noopener noreferrer'
                         >
                           Visit
                         </Card.Link>

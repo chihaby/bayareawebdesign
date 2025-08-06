@@ -1,13 +1,14 @@
-import { client } from "../../lib/client";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import PortableText from "@sanity/block-content-to-react";
-import urlBuilder from "@sanity/image-url";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import { client } from '../../lib/client';
+import Footer from '../../components/Footer';
+import Navbar from '../../components/Navbar';
+import PortableText from '@sanity/block-content-to-react';
+import urlBuilder from '@sanity/image-url';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const urlFor = (source) =>
   urlBuilder({
@@ -26,7 +27,7 @@ const serializer = {
       // Read https://css-tricks.com/use-target_blank/
       const { blank, href } = mark;
       return blank ? (
-        <a href={href} target="_blank" rel="noreferrer">
+        <a href={href} target='_blank' rel='noreferrer'>
           {children}
         </a>
       ) : (
@@ -54,11 +55,11 @@ function Post({ post }) {
       <Navbar />
       <Container>
         <br />
-        <div style={{ fontSize: "22px" }}>
-          <Link href="/blog">{"< Back to Blog"}</Link>
+        <div style={{ fontSize: '22px' }}>
+          <Link href='/blog'>{'< Back to Blog'}</Link>
         </div>
         <br />
-        <Row className="justify-content-md-center">
+        <Row className='justify-content-md-center'>
           <Col sm={12} md={6}>
             {/* {post.map((p) => ( */}
             <div key={post._id}>
@@ -69,8 +70,8 @@ function Post({ post }) {
               <PortableText
                 blocks={post.content}
                 serializers={serializer}
-                projectId="rzb4luf2"
-                dataset="production"
+                projectId='rzb4luf2'
+                dataset='production'
               />
             </div>
             {/* ))} */}
@@ -100,7 +101,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }
 
