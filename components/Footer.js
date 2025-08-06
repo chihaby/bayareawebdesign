@@ -209,7 +209,7 @@ const Footer = () => {
                   borderRadius: "5px",
                 }}
               >
-                rad@bayareawebdesign.services
+                rad@bayareawebdesign.net
               </a>
             </p>
           </div>
@@ -242,7 +242,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className={styles.copyright}>
-            <p> Copyright &copy; 2025 BayAreaWebDesign.Services</p>
+            <p> Copyright &copy; 2025 BayAreaWebDesign.Net</p>
           </div>
         </div>
       </footer>

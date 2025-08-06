@@ -1,18 +1,18 @@
-'use client';
-import { useState } from 'react';
-import Head from 'next/head';
-import Row from 'react-bootstrap/Row';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import { loadData } from './api/post';
-import Post from '../../components/Post';
-import styles from '../../styles/Blog.module.css';
+"use client";
+import { useState } from "react";
+import Head from "next/head";
+import Row from "react-bootstrap/Row";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { loadData } from "./api/post";
+import Post from "../../components/Post";
+import styles from "../../styles/Blog.module.css";
 
 const LOAD_MORE_STEPS = 3;
 
 function Blog({ initialPosts, total }) {
   <Head>
-    <link rel='canonical' href='https://bayareawebdesign.services/blog' />
+    <link rel="canonical" href="https://bayareawebdesign.net/blog" />
   </Head>;
   const [posts, setPosts] = useState(initialPosts);
   // const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEPS);

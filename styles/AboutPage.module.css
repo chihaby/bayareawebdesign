@@ -17,12 +17,18 @@
 }
 
 .photo {
-  margin: 'auto';
-  width: '18rem'
+  margin: "auto";
+  width: "18rem";
 }
 
 @media (min-width: 550px) {
   .photo {
     float: left;
+  }
+}
+
+@media (min-width: 1025px) {
+  .photo {
+    margin-top: 200px;
   }
 }

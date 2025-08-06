@@ -89,7 +89,7 @@
     position: relative;
   }
   .hero_section {
-    height: 75vh;
+    height: 80vh;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -128,11 +128,10 @@
 }
 
 /* Full size display */
-
 @media (min-width: 1281px) {
   .hero_section {
-    height: 55vh;
-    padding-top: 5rem;
+    height: 65vh;
+    padding-top: 9rem;
   }
   .left_side {
     margin-top: -50px;
@@ -140,6 +139,6 @@
   .image_hero {
     flex-basis: 15%;
     left: 1100px;
-    top: 100px;
+    top: 170px;
   }
 }
