@@ -12,6 +12,6 @@
   margin-left: 0px;
   margin-bottom: 1em;
   color: var(--primary_color);
-  font-family: "Merriweather", serif;
+  /* font-family: "Merriweather", serif; */
   text-transform: uppercase;
 }
