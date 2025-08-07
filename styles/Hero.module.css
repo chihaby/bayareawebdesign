@@ -19,17 +19,18 @@
   text-transform: none;
   font-family: "PT Sans", sans-serif;
 }
-
 .strapline {
   font-size: 21px;
   font-weight: bold;
+  line-height: 1.6;
   color: white;
-  font-family: "Merriweather", serif;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  /* font-family: "Merriweather", serif; */
 }
 .paragraph {
-  font-size: 1.2rem;
-  font-weight: normal;
-  color: #444444;
+  font-size: 16px;
+  color: white;
 }
 .cta_button {
   margin: auto;
@@ -48,7 +49,7 @@
     margin-top: 20px;
   }
   .image_hero {
-    width: 100%;
+    width: 330px;
     display: block;
     order: 1;
   }

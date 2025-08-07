@@ -9,7 +9,6 @@
   font-weight: 500;
   font-size: 25px;
   line-height: 1.5em;
-  margin-left: 0px;
   margin-bottom: 1em;
   color: var(--primary_color);
   font-family: "Merriweather", serif;
@@ -17,18 +16,44 @@
 }
 
 .photo {
-  margin: "auto";
-  width: "18rem";
+  margin: auto;
+  width: 18rem;
+  display: block;
 }
 
+/* Small tablets */
 @media (min-width: 550px) {
   .photo {
     float: left;
+    margin-right: 1.5em;
+    margin-bottom: 1em;
   }
 }
 
+/* ✅ Tablets */
+@media (min-width: 768px) {
+  .container {
+    padding: 2em;
+  }
+
+  .title {
+    font-size: 27px;
+  }
+
+  .photo {
+    width: 20rem;
+  }
+}
+
+/* Laptops */
 @media (min-width: 1025px) {
   .photo {
     margin-top: 200px;
+    width: 22rem;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
   }
 }

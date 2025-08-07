@@ -7,8 +7,6 @@ const CTA = () => {
   return (
     <div className={styles.main}>
       <br />
-      <br />
-      <br />
       <h2 className={styles.cta_title}>Ready to get started?</h2>
       <br />
       <Row>

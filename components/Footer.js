@@ -120,6 +120,7 @@ const Footer = () => {
     <div style={{ backgroundColor: "#252324" }}>
       <footer className={styles.footer}>
         <div className={styles.footer_form}>
+          <br />
           <h2>CONTACT US</h2>
           <br />
           <div className={styles.title_section}>
@@ -130,7 +131,7 @@ const Footer = () => {
             </p>
           </div>
           <form onSubmit={handleSubmit}>
-            <span>Name</span>
+            <div className={styles.label}>Name</div>
             <br />
             <input
               className={styles.form_input}
@@ -142,11 +143,11 @@ const Footer = () => {
               onChange={handleFullNameInputChange}
             />
             {submitted && !values.fullName && (
-              <span id="first-name-error">Please enter your full name</span>
+              <div id="first-name-error">Please enter your full name</div>
             )}
             <br />
             <br />
-            <span>Email</span>
+            <div className={styles.label}>Email</div>
             <br />
             <input
               className={styles.form_input}
@@ -159,7 +160,7 @@ const Footer = () => {
             />
             <br />
             <br />
-            <span>Message</span>
+            <div className={styles.label}>Message</div>
             <br />
             <textarea
               className={styles.form_message}

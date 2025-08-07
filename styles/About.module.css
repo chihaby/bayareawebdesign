@@ -8,14 +8,13 @@
   text-transform: none;
   font-family: "PT Sans", sans-serif;
 }
+
 .title {
   text-align: left;
   font-weight: 500;
   font-size: 25px;
   line-height: 1.5em;
-  margin-left: 0px;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  margin: 2em 0 1em 0;
   color: var(--primary_color);
   font-family: "Merriweather", serif;
   text-transform: uppercase;
@@ -23,22 +22,41 @@
 
 .more {
   width: 300px;
-  margin: auto;
+  margin: 0 auto 1em auto;
   text-align: center;
   color: var(--primary_color);
-  margin-bottom: 1em;
+  transition: color 200ms;
 }
 
 .more:hover {
-  transition: 200ms;
+  color: var(--secondary_color); /* Optional: Add hover effect */
 }
 
+/* 550px - Small tablets */
 @media (min-width: 550px) {
   .container {
     height: 55vh;
   }
 }
 
+/* ✅ 768px - Medium tablets */
+@media (min-width: 768px) {
+  .container {
+    padding: 1em;
+    height: auto;
+  }
+
+  .title {
+    font-size: 27px;
+    margin-top: 2.5em;
+  }
+
+  .more {
+    width: 320px;
+  }
+}
+
+/* 1025px - Laptops and up */
 @media (min-width: 1025px) {
   .container {
     height: 60vh;
@@ -47,17 +65,18 @@
 
   .title {
     font-weight: 600;
-    margin-left: 0px;
+    font-size: 28px;
     margin-top: 3em;
-    margin-bottom: 1em;
   }
 }
 
+/* 1281px - Large desktops */
 @media (min-width: 1281px) {
   .container {
     height: 40vh;
     max-width: 1200px;
   }
+
   .title {
     font-size: 30px;
     margin-top: 70px;

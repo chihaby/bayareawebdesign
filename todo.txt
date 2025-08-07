@@ -30,6 +30,9 @@ iPad Air 2	            768 x 1024
 
 
     550 1025 1281
+    use the same font as in the about page
+
+    I need to create a blog on my website, which I am building using NextJS 15.4.5. I need it to be server-side rendered for good SEO using Strapi as CMS 
 
 
 
