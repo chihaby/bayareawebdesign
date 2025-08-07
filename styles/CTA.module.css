@@ -14,7 +14,7 @@
   font-size: 25px;
   line-height: 1.5em;
   color: var(--primary_color);
-  font-family: "Merriweather", serif;
+  /* font-family: "Merriweather", serif; */
   text-transform: uppercase;
 }
 .steps {

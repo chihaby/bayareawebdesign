@@ -1,6 +1,5 @@
 /* Base styles (Mobile first) */
 .container {
-  height: 110vh;
   max-width: 999px;
   margin: auto;
   padding: 1em;
@@ -12,141 +11,150 @@
 }
 
 .models {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  flex-wrap: nowrap;
+  gap: 2em;
 }
 
 .models_main_title {
-  font-family: "PT Sans", sans-serif;
   font-size: 22px;
-  font-weight: 450;
+  font-weight: 500;
   margin: 30px 0;
-  text-align: center;
-  line-height: normal;
-  text-transform: none;
-}
-
-.paragraph {
-  font-size: 1.1em;
 }
 
 .model_item {
-  padding: 1.2rem;
   width: 100%;
+  padding: 1.2rem;
   box-sizing: border-box;
 }
 
 .model_link {
   display: block;
-  overflow: hidden;
   color: inherit;
+  text-decoration: none;
 }
 
 .model_title {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 500;
-  line-height: 1.2;
-  margin: 25px 0 20px;
-  text-align: center;
+  margin: 20px 0 10px;
 }
 
-.model_text {
-  margin: 25px 0;
+.model_text,
+.model_description,
+.model_visit {
+  font-size: 0.9rem;
   text-align: center;
+  margin: 10px 0;
 }
 
 .model_description {
-  font-size: 12px;
   line-height: 1.4;
-  margin-top: 10px;
-  text-align: center;
 }
 
-.model_visit {
-  font-size: 12px;
-  font-weight: normal;
-  text-align: center;
+.view_sevices {
+  display: flex;
 }
 
-/* Small Tablet (576px and up) */
+.cta_link {
+  width: 250px;
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+  padding: 1em;
+  cursor: pointer;
+  box-shadow: none;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  justify-content: center;
+}
+
+/* Small Tablet (≥576px) */
 @media (min-width: 576px) {
-  .container {
-    height: 150vh;
-  }
-
   .models {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
+    text-align: left;
   }
 
   .models_main_title {
-    font-family: "Merriweather", serif;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 1.5em;
-    margin: 0 0 30px 0;
+    font-size: 24px;
+    margin: 20px 0;
     text-align: left;
     text-transform: uppercase;
   }
 
-  .model_item {
-    box-sizing: border-box;
-  }
-
   .model_title {
-    font-size: 22px;
-    font-weight: 500;
-    padding: 1.3rem 0;
-    margin: 0;
+    text-align: left;
   }
 
-  .model_text {
-    margin-top: 10px;
+  .model_text,
+  .model_description,
+  .model_visit {
+    text-align: left;
   }
 
   .model_description {
     font-size: 0.8rem;
   }
+
+  .view_sevices {
+    display: flex;
+  }
+
+  .cta_link {
+    width: 250px;
+    justify-content: center;
+  }
 }
 
-/* Standard Tablet (768px and up) */
+/* Medium Tablet (≥768px) */
 @media (min-width: 768px) {
   .container {
     padding: 2em;
-    height: auto;
+    display: flex;
+    min-height: 50vh;
+  }
+
+  .models {
+    justify-content: center;
   }
 
   .model_item {
     width: 45%;
   }
 
-  .model_title {
-    font-size: 24px;
-  }
-
   .models_main_title {
     font-size: 26px;
   }
+
+  .model_title {
+    font-size: 24px;
+  }
 }
 
-/* Laptop (1024px and up) */
+/* Laptop (≥1024px) */
 @media (min-width: 1024px) {
   .container {
-    height: 95vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: auto;
   }
 
   .models {
     max-width: 999px;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+    gap: 2em;
+  }
+
+  .model_item {
+    width: 30%;
   }
 
   .models_main_title {
@@ -155,7 +163,32 @@
   }
 
   .model_link {
-    text-decoration: none;
     color: black;
+  }
+
+  .cta_link:hover {
+    font-weight: bold;
+    background-color: #973f26;
+    text-align: center;
+  }
+}
+
+/* Desktop (≥1280px) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+    min-height: 65vh;
+  }
+
+  .model_item {
+    width: 35%;
+  }
+
+  .cta_link {
+    font-size: large;
+    /* margin-bottom: 100px; */
+    font-weight: 650;
+    padding: 1em;
+    border-radius: 4px;
   }
 }

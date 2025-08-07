@@ -17,7 +17,7 @@
   margin-top: 2em;
   margin-bottom: 1em;
   color: var(--primary_color);
-  font-family: "Merriweather", serif;
+  /* font-family: "Merriweather", serif; */
   text-transform: uppercase;
 }
 
@@ -43,7 +43,7 @@
   }
 }
 
-@media (min-width: 1281px ) {
+@media (min-width: 1281px) {
   .container {
     height: 80vh;
   }

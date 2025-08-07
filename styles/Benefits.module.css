@@ -14,7 +14,7 @@
   font-weight: 500;
   font-size: 25px;
   line-height: 1.5em;
-  font-family: "Merriweather", serif;
+  /* font-family: "Merriweather", serif; */
   text-transform: uppercase;
 }
 .icon {
@@ -62,7 +62,7 @@
     font-weight: 600;
     font-size: 30px;
     line-height: 1.5em;
-    font-family: "Merriweather", serif;
+    /* font-family: "Merriweather", serif; */
     text-transform: uppercase;
   }
   .icon {

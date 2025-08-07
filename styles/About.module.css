@@ -16,7 +16,7 @@
   line-height: 1.5em;
   margin: 2em 0 1em 0;
   color: var(--primary_color);
-  font-family: "Merriweather", serif;
+  /* font-family: "Merriweather", serif; */
   text-transform: uppercase;
 }
 
