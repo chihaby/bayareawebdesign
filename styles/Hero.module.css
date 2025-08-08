@@ -79,7 +79,6 @@
 /* Tablet Landscape & Small Laptops (≥768px) */
 @media (min-width: 768px) {
   .hero_section {
-    height: 50vh;
     padding: 3em;
   }
 
@@ -96,7 +95,7 @@
 /* Laptops & Desktops (≥1025px) */
 @media (min-width: 1025px) {
   .hero_section {
-    height: 80vh;
+    /* height: auto; */
     max-width: 1200px;
     padding: 4em;
     margin: auto;
@@ -131,7 +130,7 @@
 /* Large Desktops (≥1281px) */
 @media (min-width: 1281px) {
   .hero_section {
-    height: 65vh;
+    /* height: auto; */
     padding-top: 9rem;
   }
 

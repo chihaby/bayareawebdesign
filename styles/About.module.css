@@ -35,7 +35,7 @@
 /* 550px - Small tablets */
 @media (min-width: 550px) {
   .container {
-    height: 55vh;
+    height: auto;
   }
 }
 
@@ -59,7 +59,7 @@
 /* 1025px - Laptops and up */
 @media (min-width: 1025px) {
   .container {
-    height: 60vh;
+    /* height: 60vh; */
     padding: 0;
   }
 
@@ -73,7 +73,7 @@
 /* 1281px - Large desktops */
 @media (min-width: 1281px) {
   .container {
-    height: 40vh;
+    /* height: 40vh; */
     max-width: 1200px;
   }
 

@@ -31,7 +31,8 @@
 }
 @media (min-width: 550px) {
   .main {
-    height: 47vh;
+    height: auto;
+    max-width: 999px;
   }
   .cta_title {
     font-weight: 500;
@@ -41,7 +42,6 @@
 
 @media (min-width: 1025px) {
   .main {
-    height: 60vh;
     padding: 0;
   }
   .cta_title {
@@ -72,7 +72,7 @@
 
 @media (min-width: 1281px) {
   .main {
-    height: 40vh;
+    /* height: 40vh; */
     max-width: 1200px;
   }
   .cta_title {

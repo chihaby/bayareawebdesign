@@ -89,6 +89,7 @@
     max-width: 1100px;
     margin: auto;
     gap: 2%;
+    height: auto;
   }
 
   .title_section {
