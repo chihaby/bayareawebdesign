@@ -94,7 +94,7 @@ const services = () => {
               </div>
             </a>
           </Col>
-          <Col sm={12} md={4} lg={4}>
+          <Col sm={12} md={6} lg={6}>
             <a
               href="https://cafelisbon.com/"
               target="_blank"

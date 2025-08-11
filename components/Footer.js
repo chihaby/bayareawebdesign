@@ -102,7 +102,7 @@ const Footer = () => {
   };
 
   const redirectToThankYouPage = () => {
-    router.push("/thankYou");
+    router.push("/thank-you");
   };
 
   return (
@@ -183,6 +183,9 @@ const Footer = () => {
               {" +1 510 630 9741"}
             </p>
           </div>
+          Try these Instead -----------------------------------
+          <p>📧 Email: rad@bayareawebdesign.net</p>
+          <p>📞 Phone: (510) 630-9741</p>
           <div className={styles.contact_email}>
             <p>
               <span>

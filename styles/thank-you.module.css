@@ -1,0 +1,155 @@
+.thankYouPage {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.successIcon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 1s ease-out 0.3s both;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-weight: 700;
+  background: #252324;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeIn 0.8s ease-out 0.5s both;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #4a5568;
+  margin-bottom: 30px;
+  font-weight: 400;
+  animation: fadeIn 0.8s ease-out 0.7s both;
+}
+
+.message {
+  font-size: 1.1rem;
+  color: #718096;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.8s ease-out 0.9s both;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeIn 0.8s ease-out 1.1s both;
+}
+
+.btn {
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  background: #252324;
+  color: white;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.btnPrimary:hover {
+  background-color: #973f26;
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.contactInfo {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(160, 174, 192, 0.3);
+  animation: fadeIn 0.8s ease-out 1.3s both;
+}
+
+.contactInfo h3 {
+  color: #4a5568;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.contactDetails {
+  color: #718096;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .thankYouContainer {
+    padding: 40px 30px;
+    margin: 0 10px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .thankYouContainer {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .contactInfo {
+    margin-top: 40px;
+  }
+}
