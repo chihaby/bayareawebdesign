@@ -29,7 +29,6 @@ export default function Navbar() {
           <ul>
             <li>
               <Link href="/">
-                {/* <Image src={plus} alt="performance" width="50" height="50" /> */}
                 <span style={{ marginLeft: "15px" }}>Bay Area Web Design</span>
               </Link>
             </li>
@@ -42,9 +41,9 @@ export default function Navbar() {
             <li className={navbarStyles.ul_links}>
               <Link href="/services">Services</Link>
             </li>
-            <li className={navbarStyles.ul_links}>
+            {/* <li className={navbarStyles.ul_links}>
               <Link href="/blog">Blog</Link>
-            </li>
+            </li> */}
             <li className={navbarStyles.ul_links}>
               <Link href="/contact">Contact</Link>
             </li>

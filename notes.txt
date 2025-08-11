@@ -1,3 +1,32 @@
+## Notes from Mailgun integration
+
+import FormData from "form-data"; // form-data v4.0.1
+import Mailgun from "mailgun.js"; // mailgun.js v11.1.0
+
+async function sendSimpleMessage() {
+  const mailgun = new Mailgun(FormData);
+  const mg = mailgun.client({
+    username: "api",
+    key: process.env.API_KEY || "API_KEY",
+    // When you have an EU-domain, you must specify the endpoint:
+    // url: "https://api.eu.mailgun.net"
+  });
+  try {
+    const data = await mg.messages.create("sandboxfcf8e644c5ac486a90beabc8420c315d.mailgun.org", {
+      from: "Mailgun Sandbox <postmaster@sandboxfcf8e644c5ac486a90beabc8420c315d.mailgun.org>",
+      to: ["Rad <rad@bayareawebdesign.net>"],
+      subject: "Hello Rad",
+      text: "Congratulations Rad, you just sent an email with Mailgun! You are truly awesome!",
+    });
+
+    console.log(data); // logs response data
+  } catch (error) {
+    console.log(error); //logs any error
+  }
+}
+
+
+## old contact component
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -7,7 +36,7 @@ import Link from "next/link";
 
 const Footer = () => {
   const [values, setValues] = useState({
-    name: "",
+    fullName: "",
     email: "",
     message: "",
   });
@@ -15,11 +44,11 @@ const Footer = () => {
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
 
-  const handlenameInputChange = (event) => {
+  const handleFullNameInputChange = (event) => {
     event.preventDefault();
     setValues((values) => ({
       ...values,
-      name: event.target.value,
+      fullName: event.target.value,
     }));
   };
 
@@ -39,47 +68,43 @@ const Footer = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (values.name && values.email && values.message) {
+    if (values.fullName && values.email && values.message) {
       setValid(true);
     }
     setSubmitted(true);
+    sendEmail();
+  };
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+  const sendEmail = () => {
+    const templateParams = {
+      from_name: values.fullName,
+      email: values.email,
+      message: values.message,
+    };
+    emailjs
+      .send(
+        process.env.USER_ID,
+        process.env.TEMPLATE_ID,
+        templateParams,
+        process.env.PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
         },
-        body: JSON.stringify(values),
-      });
-
-      // Check if the response is ok before trying to parse JSON
-      if (!res.ok) {
-        const errorData = await res.json();
-        console.error("Server error:", errorData.error);
-        console.error("Error details:", errorData.details); // This will show specific error info
-        return;
-      }
-
-      const data = await res.json();
-      if (data.success) {
-        console.log("Email sent successfully!");
-        resetInputValues();
-      } else {
-        console.error("Error sending email:", data.error);
-      }
-    } catch (error) {
-      console.error("Request failed:", error);
-    }
+        (err) => {
+          console.log("FAILED...", err);
+        }
+      );
+    resetInputValues();
   };
 
   const resetInputValues = () => {
     setValues((values) => ({
       ...values,
-      name: "",
+      fullName: "",
     }));
     setValues((values) => ({
       ...values,
@@ -128,10 +153,10 @@ const Footer = () => {
               id="name"
               placeholder="Your name"
               required
-              value={values.name}
-              onChange={handlenameInputChange}
+              value={values.fullName}
+              onChange={handleFullNameInputChange}
             />
-            {submitted && !values.name && (
+            {submitted && !values.fullName && (
               <div id="first-name-error">Please enter your full name</div>
             )}
             <br />
@@ -188,8 +213,9 @@ const Footer = () => {
               <span>
                 <i className="fa fa-envelope"> EMAIL</i>
               </span>{" "}
+              <br />
               <a
-                href={`mailto:${"rad@bayareawebdesign.net"}?subject=${encodeURIComponent()}&body=${encodeURIComponent()}`}
+                href={`mailto:${"websiteremedy.info"}?subject=${encodeURIComponent()}&body=${encodeURIComponent()}`}
                 style={{
                   padding: "10px 20px",
                   // backgroundColor: "#0070f3",
@@ -203,7 +229,6 @@ const Footer = () => {
             </p>
           </div>
           <div style={{ color: "white" }}>
-            <br />
             <span>
               <i className="fa fa-bars"> SITE MAP</i>
             </span>{" "}

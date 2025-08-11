@@ -131,11 +131,12 @@
 @media (min-width: 1281px) {
   .hero_section {
     /* height: auto; */
-    padding-top: 9rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   .left_side {
-    margin-top: 0px;
+    margin-top: 10px;
   }
 
   .image_hero {
