@@ -14,8 +14,8 @@ const Hero = () => {
           </h2>
           <p className={styles.paragraph}>
             Empower your online presence with a website that is built for
-            success - clarity, performance, design, accessibility, and user
-            experience, all in one.
+            success - inclusive design, user experience, accessibility, and
+            performance, all in one.
           </p>
           <br />
           <CtaLink />
