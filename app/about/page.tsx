@@ -8,8 +8,28 @@ import Footer from "../../components/Footer";
 import Rad from "../../public/img/Rad.jpg";
 import Image from "next/image";
 import styles from "../../styles/AboutPage.module.css";
+import type { Metadata } from "next";
 
-const about = () => {
+export const metadata: Metadata = {
+  title: "About Us - Expert Web Developers",
+  description:
+    "Learn about our team of expert web developers specializing in Web design, web development, and modern web technologies in the Bay Area.",
+  openGraph: {
+    title: "About Us - Expert Web Developers",
+    description: "Learn about our team of expert web developers.",
+    url: "https://bayareawebdesign.net/about",
+    images: [
+      {
+        url: "/about-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About Bay Area Web Design Team",
+      },
+    ],
+  },
+};
+
+export default function about() {
   return (
     <>
       <Navbar />
@@ -65,6 +85,4 @@ const about = () => {
       <Footer />
     </>
   );
-};
-
-export default about;
+}

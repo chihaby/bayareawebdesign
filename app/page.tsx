@@ -9,7 +9,7 @@ export default function Home() {
         <title>Bay Area Web Design</title>
         <meta
           name="description"
-          content="Web design and development located in San Francisco bay area. Focuses on building performant websites with great design and user experience UI/UX and provide marketing and seo services"
+          content="Web design and development located in San Francisco bay area. Focuses on building modern websites with inclusive designs, great user experience, accessibility, API integrations and provide marketing and seo services"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

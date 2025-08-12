@@ -2,39 +2,38 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/Footer.module.css";
-import Spinner from "react-bootstrap/Spinner";
 import Link from "next/link";
 
 const Footer = () => {
   const [values, setValues] = useState({
-    name: "",
+    name: "", // Changed from 'name' to 'name' to match your API
     email: "",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Better loading state
 
-  const handlenameInputChange = (event) => {
-    event.preventDefault();
-    setValues((values) => ({
-      ...values,
-      name: event.target.value,
+  const router = useRouter();
+
+  const handleNameInputChange = (event) => {
+    setValues((prev) => ({
+      ...prev,
+      name: event.target.value, // Changed to name
     }));
   };
 
   const handleEmailInputChange = (event) => {
-    event.preventDefault();
-    setValues((values) => ({
-      ...values,
+    setValues((prev) => ({
+      ...prev,
       email: event.target.value,
     }));
   };
 
   const handleMessageInputChange = (event) => {
-    event.preventDefault();
-    setValues((values) => ({
-      ...values,
+    setValues((prev) => ({
+      ...prev,
       message: event.target.value,
     }));
   };
@@ -42,10 +41,17 @@ const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate fields
     if (values.name && values.email && values.message) {
       setValid(true);
+    } else {
+      setValid(false);
+      setSubmitted(true);
+      return; // Don't proceed if validation fails
     }
+
     setSubmitted(true);
+    setIsSubmitting(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -56,11 +62,11 @@ const Footer = () => {
         body: JSON.stringify(values),
       });
 
-      // Check if the response is ok before trying to parse JSON
       if (!res.ok) {
         const errorData = await res.json();
         console.error("Server error:", errorData.error);
-        console.error("Error details:", errorData.details); // This will show specific error info
+        console.error("Error details:", errorData.details);
+        setIsSubmitting(false);
         return;
       }
 
@@ -70,40 +76,38 @@ const Footer = () => {
         resetInputValues();
       } else {
         console.error("Error sending email:", data.error);
+        setIsSubmitting(false);
       }
     } catch (error) {
       console.error("Request failed:", error);
+      setIsSubmitting(false);
     }
   };
 
   const resetInputValues = () => {
-    setValues((values) => ({
-      ...values,
+    // Fix: Update all values in one setState call
+    setValues({
       name: "",
-    }));
-    setValues((values) => ({
-      ...values,
       email: "",
-    }));
-    setValues((values) => ({
-      ...values,
       message: "",
-    }));
-    routeToThankYouPage();
-  };
+    });
 
-  const router = useRouter();
+    setSubmitted(false);
+    setValid(false);
+    setIsSubmitting(false);
 
-  const routeToThankYouPage = () => {
-    setSubmitted(!submitted);
+    // Redirect to thank you page
     setTimeout(() => {
-      redirectToThankYouPage();
-    }, 600);
+      router.push("/thank-you");
+    }, 300);
   };
 
-  const redirectToThankYouPage = () => {
-    router.push("/thank-you");
-  };
+  // Custom spinner component to avoid Bootstrap SSR issues
+  const LoadingSpinner = () => (
+    <div className={styles.spinner}>
+      <div className={styles.spinnerRing}></div>
+    </div>
+  );
 
   return (
     <main style={{ backgroundColor: "#252324" }}>
@@ -128,12 +132,13 @@ const Footer = () => {
               id="name"
               placeholder="Your name"
               required
-              value={values.name}
-              onChange={handlenameInputChange}
+              value={values.name} // Changed to name
+              onChange={handleNameInputChange}
             />
-            {submitted && !values.name && (
-              <div id="first-name-error">Please enter your full name</div>
-            )}
+            {submitted &&
+              !values.name && ( // Changed to name
+                <div id="first-name-error">Please enter your full name</div>
+              )}
             <br />
             <br />
             <div className={styles.label}>Email</div>
@@ -147,6 +152,9 @@ const Footer = () => {
               value={values.email}
               onChange={handleEmailInputChange}
             />
+            {submitted && !values.email && (
+              <div>Please enter a valid email</div>
+            )}
             <br />
             <br />
             <div className={styles.label}>Message</div>
@@ -160,50 +168,36 @@ const Footer = () => {
               value={values.message}
               onChange={handleMessageInputChange}
             />
-            <br />
-            <br />
-            <button type="subit" id="btnsubmit" className={styles.form_submit}>
-              {" "}
-              SUBMIT
-            </button>
-            {submitted && (
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden"></span>
-              </Spinner>
+            {submitted && !values.message && (
+              <div>Please enter your message</div>
             )}
+            <br />
+            <br />
+            <button
+              type="submit" // Fixed typo: was "subit"
+              id="btnsubmit"
+              className={styles.form_submit}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "SENDING..." : "SUBMIT"}
+            </button>
+            {isSubmitting && <LoadingSpinner />}
           </form>
         </div>
         <div className={styles.footer_contact}>
-          <div className={styles.contact_phone}>
-            <p>
-              <span>
-                <i className="fa fa-phone"> PHONE</i>
-              </span>
-              <br />
-              {" +1 510 630 9741"}
-            </p>
-          </div>
-          Try these Instead -----------------------------------
-          <p>📧 Email: rad@bayareawebdesign.net</p>
-          <p>📞 Phone: (510) 630-9741</p>
+          <div className={styles.contact_phone}>📞 Phone: (510) 630-9741</div>
           <div className={styles.contact_email}>
-            <p>
-              <span>
-                <i className="fa fa-envelope"> EMAIL</i>
-              </span>{" "}
-              <a
-                href={`mailto:${"rad@bayareawebdesign.net"}?subject=${encodeURIComponent()}&body=${encodeURIComponent()}`}
-                style={{
-                  padding: "10px 20px",
-                  // backgroundColor: "#0070f3",
-                  color: "white",
-                  textDecoration: "none",
-                  borderRadius: "5px",
-                }}
-              >
-                rad@bayareawebdesign.net
-              </a>
-            </p>
+            <a
+              href={`mailto:rad@bayareawebdesign.net`}
+              style={{
+                padding: "10px 20px",
+                color: "white",
+                textDecoration: "none",
+                borderRadius: "5px",
+              }}
+            >
+              📧 Email: rad@bayareawebdesign.net
+            </a>
           </div>
           <div style={{ color: "white" }}>
             <br />
