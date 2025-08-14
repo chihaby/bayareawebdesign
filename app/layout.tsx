@@ -131,11 +131,11 @@ export function LocalBusinessSchema() {
       longitude: "-122.4194",
     },
     openingHours: "Mo-Fr 09:00-17:00",
-    sameAs: [
-      "https://facebook.com/bayareawebdesign",
-      "https://linkedin.com/company/bayareawebdesign",
-      "https://twitter.com/bayareawebdesign",
-    ],
+    // sameAs: [
+    //   "https://facebook.com/bayareawebdesign",
+    //   "https://linkedin.com/company/bayareawebdesign",
+    //   "https://twitter.com/bayareawebdesign",
+    // ],
     areaServed: {
       "@type": "State",
       name: "California",

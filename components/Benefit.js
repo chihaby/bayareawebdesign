@@ -4,7 +4,6 @@ import ui from "../public/img/svg/ui.svg";
 import dev from "../public/img/svg/webdev.svg";
 import api from "../public/img/svg/api.svg";
 import axe from "../public/img/svg/axe.svg";
-// import seo from "../public/img/svg/seo.svg";
 import logo from "../public/img/svg/logo.svg";
 import copy from "../public/img/svg/copy.svg";
 import Col from "react-bootstrap/Col";
@@ -40,8 +39,9 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Increased user satisfaction, improved navigation, enhanced
-              customer loyalty and retention.
+              Your site is designed for everyone, making it easy for all
+              visitors—including those with disabilities—to access and interact
+              with your content
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
@@ -67,8 +67,8 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              API intergration ...etc serch for development examples Higher
-              engagements, better search engine ranking, increased conversions
+              From concept to launch, your site is built for performance and
+              reliability, ensuring it scales seamlessly as your business grows.
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
@@ -94,8 +94,9 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Increased user satisfaction, improved navigation, enhanced
-              customer loyalty and retention.
+              Whether it’s payments, gateways, or CRMs, your systems are
+              seamlessly connected with third-party API integrations that scale
+              with your business.
             </div>
           </Col>
         </Row>
@@ -123,8 +124,8 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Writing for the web. Higher engagements, better search engine
-              ranking, increased conversions, and reduced bounce rates.
+              Engaging web copy communicates your message clearly, connects with
+              your audience, and drives results.{" "}
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
@@ -150,8 +151,9 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              100% compliant with the legal requirements and accessibility
-              standards {"(WCAG)"}
+              A fully accessible website that meets the latest legal
+              accessibility standards, allowing all users to engage with the
+              content.
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
@@ -177,8 +179,8 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Compliant with the latest legal requirements and accessibility
-              standards {"(WCAG 2.2 )"}
+              A logo that tells your brand story and connects with your
+              audience, leaving a lasting impression
             </div>
           </Col>
         </Row>

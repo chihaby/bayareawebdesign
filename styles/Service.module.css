@@ -103,13 +103,13 @@
     font-size: 0.8rem;
   }
 
-  .view_sevices {
+  .view_services {
     display: flex;
+    justify-content: center;
   }
 
   .cta_link {
-    width: 250px;
-    justify-content: center;
+    width: 200px;
   }
 }
 

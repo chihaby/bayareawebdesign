@@ -32,7 +32,7 @@ iPad Air 2	            768 x 1024
     550 1025 1281
     use the same font as in the about page
 
-
+add google business listing to the metadata in layout.js in app folder
 
 
 
