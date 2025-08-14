@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import styles from "../styles/About.module.css";

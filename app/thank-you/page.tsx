@@ -26,7 +26,7 @@ export default function ThankYou() {
 
             <div className={styles.message}>
               <p>
-                We've received your message and appreciate you taking the time
+                We have received your message and appreciate you taking the time
                 to contact us. We will review your inquiry and get back to you
                 within 24-48 hours.
               </p>

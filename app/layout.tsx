@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bayareawebdesign.net"),
@@ -89,23 +89,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-      // className={`${geistSans.className} ${geistMono.className} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
-}
-
-export function LocalBusinessSchema() {
+function LocalBusinessSchema() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -143,9 +127,11 @@ export function LocalBusinessSchema() {
     serviceType: [
       "Web Design",
       "Web Development",
-      "NextJS Development",
-      "React Development",
-      "E-commerce Development",
+      "Responsive Web Design",
+      "Accessibility",
+      "API Integration",
+      "SEO Search Engine Optimization",
+      "Logo and Branding",
     ],
   };
 
@@ -157,29 +143,21 @@ export function LocalBusinessSchema() {
   );
 }
 
-export function sitemap() {
-  const baseUrl = "https://bayareawebdesign.net";
-
-  const routes = ["", "/about", "/services", "/contact", "/thank-you"].map(
-    (route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: route === "" ? "weekly" : "monthly",
-      priority: route === "" ? 1 : 0.8,
-    })
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        <LocalBusinessSchema />
+      </head>
+      <body
+      // className={`${geistSans.className} ${geistMono.className} antialiased`}
+      >
+        {children}
+      </body>
+    </html>
   );
-
-  return routes;
-}
-
-// Robots.txt (app/robots.js)
-export function robots() {
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/admin/", "/private/"],
-    },
-    sitemap: "https://bayareawebdesign.net/sitemap.xml",
-  };
 }

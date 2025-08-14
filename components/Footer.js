@@ -13,6 +13,9 @@ const Footer = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
+  if (valid) {
+    console.log("It’s valid!");
+  }
   const [isSubmitting, setIsSubmitting] = useState(false); // Better loading state
 
   const router = useRouter();
