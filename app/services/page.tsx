@@ -35,7 +35,6 @@ const services = () => {
               <div>
                 <Card>
                   <Image
-                    variant="top"
                     src={blitz}
                     alt="photo of blitzdetail website hero section"
                   />
@@ -129,7 +128,7 @@ const services = () => {
             >
               <div>
                 <Card>
-                  <Image variant="top" src={about} alt="portfolio website" />
+                  <Image src={about} alt="portfolio website" />
                   <Card.Body>
                     <Card.Title>Portfolio</Card.Title>
                     <Card.Text>
@@ -152,11 +151,7 @@ const services = () => {
             >
               <div>
                 <Card>
-                  <Image
-                    variant="top"
-                    src={landingpage}
-                    alt="landing page website"
-                  />
+                  <Image src={landingpage} alt="landing page website" />
                   <Card.Body>
                     <Card.Title>Client</Card.Title>
                     <Card.Text>
@@ -179,11 +174,7 @@ const services = () => {
             >
               <div>
                 <Card>
-                  <Image
-                    variant="top"
-                    src={mn}
-                    alt="mediterranean nights azure"
-                  />
+                  <Image src={mn} alt="mediterranean nights azure" />
                   <Card.Body>
                     <Card.Title>Mucisian/Band</Card.Title>
                     <Card.Text>
