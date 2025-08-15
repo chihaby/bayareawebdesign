@@ -39,9 +39,8 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Your site is designed for everyone, making it easy for all
-              visitors—including those with disabilities—to access and interact
-              with your content
+              Inclusive design ensures all visitors—including those with
+              disabilities—can easily access and interact with your content.
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
@@ -68,7 +67,8 @@ const Benefit = () => {
             <br />
             <div className={styles.description}>
               From concept to launch, your site is built for performance and
-              reliability, ensuring it scales seamlessly as your business grows.
+              reliability, enabling it to scale seamlessly as your business
+              grows.
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
@@ -94,9 +94,9 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Whether it’s payments, gateways, or CRMs, your systems are
-              seamlessly connected with third-party API integrations that scale
-              with your business.
+              Whether it is payments, gateways, or CRMs, your systems are
+              seamlessly connected with third-party API integrations that grow
+              with your business
             </div>
           </Col>
         </Row>
@@ -179,7 +179,7 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              A logo that tells your brand story and connects with your
+              A logo that tells your brand story and resonates with your
               audience, leaving a lasting impression
             </div>
           </Col>

@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Service = () => {
   return (
-    <div style={{ backgoudColor: "#FAFAFA" }}>
+    <div style={{ backgroundColor: "#fafafa" }}>
       <div className={styles.container}>
         <h2 className={styles.models_main_title}>Examples</h2>
         <Row className={styles.models}>
