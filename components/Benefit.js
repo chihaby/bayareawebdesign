@@ -39,8 +39,9 @@ const Benefit = () => {
             </div>
             <br />
             <div className={styles.description}>
-              Inclusive design ensures all visitors—including those with
-              disabilities—can easily access and interact with your content.
+              Inclusive design with a simple, clear layout ensures all
+              visitors—including those with disabilities—can easily access and
+              interact with your content.
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>
