@@ -1,14 +1,13 @@
-import { NextResponse } from "next/server";
+// app/robots.ts
+import { MetadataRoute } from "next";
 
-export async function GET() {
-  const content = `
-User-agent: *
-Allow: /
-Sitemap: https://bayareawebdesign.net/sitemap.xml
-  `.trim();
-
-  return new NextResponse(content, {
-    status: 200,
-    headers: { "Content-Type": "text/plain" },
-  });
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: "/admin",
+    },
+    sitemap: "https://www.bayareawebdesign.net/sitemap.xml",
+  };
 }

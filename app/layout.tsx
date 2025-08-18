@@ -82,16 +82,19 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification",
-    yandex: "your-yandex-verification",
-    yahoo: "your-yahoo-verification",
+  // verification: {
+  //   google: "your-google-site-verification",
+  //   yandex: "your-yandex-verification",
+  //   yahoo: "your-yahoo-verification",
+  // },
+  alternates: {
+    canonical: "https://www.bayareawebdesign.net", // 👈 canonical URL
   },
 };
 
 function LocalBusinessSchema() {
   const structuredData = {
-    "@context": "https://schema.org",
+    "@context": "https://bayareawebdesign.net",
     "@type": "LocalBusiness",
     "@id": "https://bayareawebdesign.net/#organization",
     name: "Bay Area Web Design",

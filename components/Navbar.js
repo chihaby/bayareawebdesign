@@ -2,8 +2,8 @@ import navbarStyles from "../styles/Navbar.module.css";
 import Link from "next/link";
 // import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
-import Image from "next/image";
-import bawd from "../public/assets/logo/bawd.png";
+// import Image from "next/image";
+// import bawd from "../public/assets/logo/bawd.png";
 
 export default function Navbar() {
   return (
@@ -13,11 +13,11 @@ export default function Navbar() {
           <ul>
             <li>
               <Link href="/">
-                <Image
+                {/* <Image
                   alt="teal color logo of bay area web design "
                   src={bawd}
                   width={50}
-                />
+                /> */}
                 <span style={{ marginLeft: "65px" }}>Bay Area Web Design</span>
               </Link>
             </li>
