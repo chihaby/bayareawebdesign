@@ -36,6 +36,9 @@ add google business listing to the metadata in layout.js in app folder
 
 investigate can not export localbusinessschema from layout.ts in the app router, when I add export default localbusinessschema. Needed for SEO/
 
+Fix google search console errors
+
+
 
 
 
