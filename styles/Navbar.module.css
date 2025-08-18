@@ -1,11 +1,11 @@
 .main {
   display: flex;
   background-color: #252324;
+  justify-content: center;
 }
 .navbar {
   font-family: serif;
   width: 100%;
-  justify-content: center;
 }
 .navbar ul {
   list-style-type: none;
