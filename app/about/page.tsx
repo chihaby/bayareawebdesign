@@ -22,17 +22,18 @@ export default function about() {
           <Col>
             <Card style={{ width: "18rem" }}>
               <Image src={Rad} width={285} height={285} alt="profile photo" />
-              <CardBody>
+              {/* <CardBody>
                 <Card.Title>Rad</Card.Title>
                 <Card.Text>Web developer, UI/UX specialist.</Card.Text>
-              </CardBody>
+              </CardBody> */}
             </Card>
           </Col>
+          <br />
           <Col>
-            <h3>Rad</h3>
+            {/* <h3>Rad</h3> */}
             <p>
-              I{"'"}m Rad, a web developer with many years of experience. I{"'"}
-              ve learned a lot over the years and specialize in making
+              I{"'"}m Rad, a seasoned web developer with extensive experience. I
+              {"'"}ve learned a lot over the years and specialize in making
               user-friendly websites. I use my expertise to ensure your website
               is engaging and effective.
               <br />
