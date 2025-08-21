@@ -14,5 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+        {
+      url: "https://www.bayareawebdesign.net/contact",
+      lastModified: new Date().toISOString(),
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    },
   ];
 }
