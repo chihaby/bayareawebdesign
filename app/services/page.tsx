@@ -95,7 +95,7 @@ const services = () => {
           </Col>
           <Col sm={12} md={6} lg={6}>
             <a
-              href="https://cafelisbon.com/"
+              href="https:/cafe-lisbon-2o6tx7f31-rads-projects-304e987f.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "none", color: "#444444" }}
