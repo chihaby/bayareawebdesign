@@ -28,7 +28,6 @@ const services = () => {
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
               <b>Auto</b>
-              <br />
               <a
                 href="https://www.blitzdetail.com/"
                 target="_blank"
