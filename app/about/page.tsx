@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import CardBody from "react-bootstrap/CardBody";
+// import CardBody from "react-bootstrap/CardBody";
 import Footer from "../../components/Footer";
 import Rad from "../../public/img/Rad.jpg";
 import Image from "next/image";

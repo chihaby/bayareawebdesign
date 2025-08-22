@@ -113,7 +113,7 @@ const Footer = () => {
   );
 
   return (
-    <main style={{ backgroundColor: "#252324" }}>
+    <div style={{ backgroundColor: "#252324" }}>
       <footer className={styles.footer}>
         <div className={styles.footer_form}>
           <br />
@@ -236,7 +236,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </main>
+    </div>
   );
 };
 

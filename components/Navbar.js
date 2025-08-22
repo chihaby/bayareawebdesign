@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 
 export default function Navbar() {
   return (
-    <main className={navbarStyles.main}>
+    <div className={navbarStyles.main}>
       <Row className={navbarStyles.navbar}>
         <nav>
           <ul>
@@ -39,6 +39,6 @@ export default function Navbar() {
           </ul>
         </nav>
       </Row>
-    </main>
+    </div>
   );
 }
