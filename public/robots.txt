@@ -1,0 +1,35 @@
+# General bots: block sensitive folders
+User-agent: *
+Disallow: /admin
+Disallow: /private
+
+# Major AI crawlers: full access
+User-agent: GPTBot
+Allow: /
+
+User-agent: OpenAI
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OmigiliBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: You.com
+Allow: /
+
+# Sitemap
+Sitemap: https://www.bayareawebdesign.net/sitemap.xml
