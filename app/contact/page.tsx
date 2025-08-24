@@ -1,23 +1,14 @@
-'use client';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+// app/about/page.tsx (server by default)
 import type { Metadata } from "next";
+import Contact from "./AboutContact";
 
 export const metadata: Metadata = {
-  title: "Contact | Bay Area Web Design",
-  description: "Contact Bay Area Web Design for free consultation",
-  metadataBase: new URL("https://bayareawebdesign.net"),
+  title: "Contact Us - Bay Area Web Design",
   alternates: {
-    canonical: "/contact",
+    canonical: "https://bayareawebdesign.net/contact",
   },
 };
-const contact = () => {
-  return (
-    <>
-      <Navbar />
-      <Footer />
-    </>
-  );
-};
 
-export default contact;
+export default function AboutContact() {
+  return <Contact />;
+}
