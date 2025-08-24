@@ -79,9 +79,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://bayareawebdesign.net",
     siteName: "Bay Area Web Design",
-    title: "Bay Area Web Design - Professional Web Development Services",
+    title: "Bay Area Web Design - Professional Web Design Services",
     description:
-      "Professional web design and development services in the Bay Area.",
+      "Professional web design and development services in the Bay Area. We focus on Inclusive design with a simple, clear layout that ensures all visitors—including those with disabilities—can easily access and interact with your content. We are experts in API integrations and engaging copy",
     images: [
       {
         url: "/og-image.jpg",

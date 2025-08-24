@@ -14,6 +14,16 @@ import cafelisbon from "../../public/img/cafelisbon.png";
 import mn from "../../public/img/mn.png";
 import about from "../../public/img/about.png";
 import styles from "../../styles/ServicePage.module.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services | Bay Area Web Design",
+  description: "View bay area web design services for small, medium businesses and industry professionals",
+  metadataBase: new URL("https://bayareawebdesign.net"),
+  alternates: {
+    canonical: "/services",
+  },
+};
 
 const services = () => {
   return (
