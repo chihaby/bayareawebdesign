@@ -15,6 +15,7 @@ const contact = () => {
   return (
     <>
       <Navbar />
+      <h1>Contact Us</h1>
       <Footer />
     </>
   );
