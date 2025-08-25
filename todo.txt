@@ -38,6 +38,9 @@ investigate can not export localbusinessschema from layout.ts in the app router,
 
 Fix google search console errors
 
+Add "responsive"
+
+
 
 
 

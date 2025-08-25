@@ -64,13 +64,7 @@ const services = () => {
             </Col>
             <Col sm={12} md={6} lg={6}>
               <Card.Text style={{ marginTop: "100px" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                in lorem porta, accumsan elit sed, rhoncus eros. Sed sed gravida
-                odio. Nulla non accumsan justo, vitae tempus nibh. Duis varius
-                viverra purus quis porttitor. Duis ultricies in est vitae
-                sollicitudin. Vivamus porta erat at ipsum rhoncus, a lacinia mi
-                vestibulum. Nulla interdum nisl non laoreet tristique.
-                Suspendisse semper sit amet nisi ac mattis..
+                Auto detailing showcase services with simplied booking process for customers. The site allows visitors to browse options such as interior, exterior, or full detailing packages, with the flexibility to include add-ons. Once selections are made, customers can schedule appointments directly through Calendly, which syncs seamlessly with the business calendar to prevent scheduling conflicts. To complete the process, secure payment is built into the platform, confirming the appointment instantly. The result is a professional, user-friendly, responsive website designed to enhance customer experience.
               </Card.Text>
             </Col>
           </Row>
