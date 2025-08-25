@@ -1,7 +1,7 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styles from '../styles/About.module.css';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const About = () => {
   return (

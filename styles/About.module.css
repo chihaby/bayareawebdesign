@@ -1,8 +1,8 @@
 .container {
-  max-width: 999px;
+  width: 100%;
   padding: 0.5em;
   margin: auto;
-  font-size: 1.1em;
+  font-size: 16px;
   line-height: 1.5em;
   word-wrap: break-word;
   text-transform: none;
@@ -33,6 +33,7 @@
 /* 550px - Small tablets */
 @media (min-width: 550px) {
   .container {
+    max-width: 999px;
     height: auto;
   }
 }

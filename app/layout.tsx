@@ -182,6 +182,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <LocalBusinessSchema />
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="vxJO+bXMknJX5j7Vpleg1A" async></script>
       </head>
       <body
       // className={`${geistSans.className} ${geistMono.className} antialiased`}
