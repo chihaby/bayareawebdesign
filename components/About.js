@@ -1,7 +1,7 @@
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import styles from '../styles/About.module.css';
-// import Link from 'next/link';
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import styles from "../styles/About.module.css";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -13,38 +13,35 @@ const About = () => {
         <Col
           sm={12}
           md={12}
-          style={{ padding: '5px 50px', lineHeight: '1.8em' }}
+          style={{ padding: "5px 50px", lineHeight: "1.8em" }}
         >
           <p>
-            At Bay Area Web Design, we focus on building websites that work for
-            everyone. Our goal is to create clear and simple designs that are
-            easy to use, putting user experience and accessibility front and
-            center. We believe inclusive design isn{"'"}t just a buzzword—it
-            {"'"}s about making sure every visitor, no matter their ability, can
-            navigate and interact with your site without frustration. We
-            specialize in custom WordPress websites, but we also love coding
-            from scratch. This gives us full control over performance,
-            customization, and integrations. Need payment processing,
-            third-party APIs, or advanced functionality? We handle it. We also
-            pay attention to copy, ensuring your content is clear and drives
-            engagement. Our approach combines UI/UX design, accessibility
-            standards, and web development best practices so your website not
-            only looks good but works smoothly. SEO is built into every project,
-            helping your site get found by the right audience. Whether you need
-            a simple brochure site or a complex platform with multiple
-            integrations, we make it easy for users and search engines alike. At
-            Bay Area Web Design, we focus on building sites that are fast,
-            accessible, and fully customized, making sure your online presence
-            reflects your brand and connects with your audience effectively.
+            At Bay Area Web Design, we build websites that work by keeping them
+            simple, clutter-free, and easy to navigate. Our focus is always on
+            inclusive design, making sure that anyone—regardless of ability—can
+            move through your site without confusion. We don{"’"}t just add
+            pretty colors or flashy visuals; we carefully study information
+            architecture and design the flow of content so visitors know exactly
+            where to go and what to do. By structuring information clearly, we
+            remove distractions and create a seamless experience that helps your
+            message stand out. Copywriting is just as important as design, which
+            is why we say more with less, using clear and direct language that
+            drives engagement. Whether we{"’"}re building a custom WordPress
+            site or coding from scratch, we prioritize performance,
+            accessibility, user interface, and overall user experience. Every
+            project blends UX/UI best practices with SEO and accessibility
+            standards, so your site isn{"’"}t just beautiful—it
+            {"’"}s functional, user-friendly, and built to connect your brand
+            with the right audience.
           </p>
           <br />
         </Col>
       </Row>
-      {/* <Row className={styles.more}>
-        <Link href='/about' style={{ color: '#457B9D' }}>
-          Find out more about Rad.
+      <Row className={styles.more}>
+        <Link href="/about" style={{ color: "#457B9D" }}>
+          Find out more
         </Link>
-      </Row> */}
+      </Row>
     </div>
   );
 };

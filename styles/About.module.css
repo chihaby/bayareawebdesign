@@ -7,7 +7,6 @@
   word-wrap: break-word;
   text-transform: none;
 }
-
 .title {
   text-align: left;
   font-weight: 500;
@@ -17,13 +16,11 @@
   color: var(--primary_color);
   text-transform: uppercase;
 }
-
 .more {
   width: 300px;
   margin: 0 auto 1em auto;
   text-align: center;
   color: var(--primary_color);
-  transition: color 200ms;
 }
 
 .more:hover {
@@ -49,9 +46,9 @@
     font-size: 27px;
     margin-top: 2.5em;
   }
-
   .more {
-    width: 320px;
+    position: relative;
+    left: -20;
   }
 }
 
@@ -61,7 +58,6 @@
     /* height: 60vh; */
     padding: 0;
   }
-
   .title {
     font-weight: 600;
     font-size: 28px;
@@ -75,7 +71,6 @@
     /* height: 40vh; */
     max-width: 1200px;
   }
-
   .title {
     font-size: 30px;
     margin-top: 70px;
