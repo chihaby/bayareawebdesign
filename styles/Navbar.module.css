@@ -7,6 +7,11 @@
   font-family: serif;
   width: 100%;
 }
+.title {
+  position: relative;
+  top: -44px;
+  left: 20px;
+}
 .navbar ul {
   list-style-type: none;
   margin: 0;
@@ -44,6 +49,14 @@
 }
 
 @media (min-width: 550px) {
+  .logo {
+    position: relative;
+    top: -25px;
+  }
+  .title {
+    top: -75px;
+    left: -40px;
+  }
   .navbar ul {
     gap: 1em;
     max-width: 1200px;
@@ -85,24 +98,26 @@
 }
 
 @media (min-width: 1025px) {
-  .navbar {
-    padding-top: 0rem;
-    padding-bottom: 1rem;
+  .logo {
+    position: relative;
+    top: -10px;
+  }
+  .title {
+    position: relative;
+    top: -55px;
+    left: 75px;
   }
   .navbar ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
-    padding-top: 10px;
+    padding-top: 15px;
     gap: 50px;
     font-weight: 500;
-    /* color: #011c3f; */
     color: white;
   }
-
   .navbar a {
     display: block;
-    /* color: #222222; */
     color: white;
     text-align: center;
     box-shadow: none;
