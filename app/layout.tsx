@@ -193,7 +193,19 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Tag Manager */}
-                <script src="https://analytics.ahrefs.com/analytics.js" data-key="vxJO+bXMknJX5j7Vpleg1A" async></script>
+
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5KF2H4BBJE"></Script>
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5KF2H4BBJE');
+          `}
+        </Script>
+
+      <Script src="https://analytics.ahrefs.com/analytics.js" data-key="vxJO+bXMknJX5j7Vpleg1A" async></Script>
 
         <LocalBusinessSchema />
       </head>
