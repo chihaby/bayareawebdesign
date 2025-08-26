@@ -18,7 +18,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services | Bay Area Web Design",
-  description: "View bay area web design services for small, medium businesses and industry professionals",
+  description:
+    "View bay area web design services for small, medium businesses and industry professionals",
   metadataBase: new URL("https://bayareawebdesign.net"),
   alternates: {
     canonical: "/services",
@@ -35,7 +36,6 @@ const services = () => {
           <hr />
           <br />
           <br />
-
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
               <a
@@ -63,30 +63,47 @@ const services = () => {
               </a>
             </Col>
             <Col sm={12} md={6} lg={6}>
-              <Card.Text style={{ marginTop: "100px" }}>
-                Auto detailing showcase services with simplied booking process for customers. The site allows visitors to browse options such as interior, exterior, or full detailing packages, with the flexibility to include add-ons. Once selections are made, customers can schedule appointments directly through Calendly, which syncs seamlessly with the business calendar to prevent scheduling conflicts. To complete the process, secure payment is built into the platform, confirming the appointment instantly. The result is a professional, user-friendly, responsive website designed to enhance customer experience.
+              <h2>Auto Detailing Service</h2>
+              <br />
+              <Card.Text>
+                Auto detailing service with simplied booking process for
+                customers. The site allows visitors to browse options such as
+                interior, exterior, or full detailing packages, with the
+                flexibility to include add-ons. Once selections are made,
+                customers can schedule appointments directly through integrated
+                Calendly, which syncs seamlessly with the business calendar to
+                prevent scheduling conflicts. To complete the process, secure
+                payment is built into the platform, confirming the appointment
+                instantly. The result is a professional, user-friendly,
+                responsive website designed to enhance customer experience.
               </Card.Text>
             </Col>
           </Row>
           <br />
           <br />
-
+          <hr />
           <br />
           <br />
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
-              <Card.Text style={{ marginTop: "200px" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                in lorem porta, accumsan elit sed, rhoncus eros. Sed sed gravida
-                odio. Nulla non accumsan justo, vitae tempus nibh. Duis varius
-                viverra purus quis porttitor. Duis ultricies in est vitae
-                sollicitudin. Vivamus porta erat at ipsum rhoncus, a lacinia mi
-                vestibulum. Nulla interdum nisl non laoreet tristique.
-                Suspendisse semper sit amet nisi ac mattis..
+              <Card.Text>
+                <h2>Web Content Accessibility Guidlines WCAG AA 2.0</h2>
+                <br />
+                The East Bay Paratransit community depends on having a website
+                that is accessible for all users, including those who are
+                visually impaired, have hearing loss, or limited motor skills.
+                The website was built with a simple, user-friendly design that
+                makes navigation easy and works well with screen readers and
+                keyboard controls. Accessibility was a priority from the start,
+                and the site follows the latest WCAG 2.2 AA standards to ensure
+                compliance. Features were built in to support an inclusive
+                experience so every customer can find the information they need
+                without barriers. The focus was to create a reliable,
+                accessible, and modern website that meets the needs of East Bay
+                Paratransit riders.
               </Card.Text>
             </Col>
             <Col sm={12} md={6} lg={6}>
-              <b>Web Content Accessibility WCAG</b>
               <a
                 href="https://ebpt-rads-projects-304e987f.vercel.app/"
                 target="_blank"
@@ -110,9 +127,11 @@ const services = () => {
           </Row>
           <br />
           <br />
+          <hr />
+          <br />
+          <br />
           <Row>
             <Col sm={12} md={6} lg={6}>
-              <b>Coffee Shop</b>
               <a
                 href="https://cafe-lisbon-2o6tx7f31-rads-projects-304e987f.vercel.app/"
                 target="_blank"
@@ -135,35 +154,45 @@ const services = () => {
               </a>
             </Col>
             <Col sm={12} md={6} lg={6}>
-              <Card.Text style={{ marginTop: "200px" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                in lorem porta, accumsan elit sed, rhoncus eros. Sed sed gravida
-                odio. Nulla non accumsan justo, vitae tempus nibh. Duis varius
-                viverra purus quis porttitor. Duis ultricies in est vitae
-                sollicitudin. Vivamus porta erat at ipsum rhoncus, a lacinia mi
-                vestibulum. Nulla interdum nisl non laoreet tristique.
-                Suspendisse semper sit amet nisi ac mattis..
+              <h2>Coffee Shop</h2>
+              <br />
+              <Card.Text>
+                Cafe Lisbon was designed with a modern and elegant style to
+                reflect the atmosphere of the business. The site highlights the
+                different coffee blends and fresh pastries the shop offers,
+                giving visitors a clear view of the menu. An About page shares
+                the history of the business and the passion that drives it,
+                helping customers connect with the story behind the brand. There
+                is also a store page that includes practical details like the
+                hours of operation and location, making it easy for people to
+                plan their visit.
               </Card.Text>
             </Col>
           </Row>
           <br />
           <br />
+          <hr />
           <br />
           <br />
           <Row>
             <Col sm={12} md={6} lg={6}>
-              <Card.Text style={{ marginTop: "200px" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                in lorem porta, accumsan elit sed, rhoncus eros. Sed sed gravida
-                odio. Nulla non accumsan justo, vitae tempus nibh. Duis varius
-                viverra purus quis porttitor. Duis ultricies in est vitae
-                sollicitudin. Vivamus porta erat at ipsum rhoncus, a lacinia mi
-                vestibulum. Nulla interdum nisl non laoreet tristique.
-                Suspendisse semper sit amet nisi ac mattis..
+              <h2>Pizzeria</h2>
+              <br />
+              <Card.Text>
+                This project is a full stack application built to give the owner
+                control over the website through a simple back end where new
+                menu items and prices can be uploaded and updated easily. On the
+                customer side, the site allows visitors to browse the menu, view
+                detailed ingredients for each pizza, and even filter options by
+                ingredients to find exactly what they want. Once they make their
+                choice, customers can place an order directly online. The goal
+                was to create a smooth experience for both the business and its
+                customers, combining an easy management system for the owner
+                with a user-friendly interface that makes ordering pizza online
+                straightforward and convenient.
               </Card.Text>
             </Col>
             <Col sm={12} md={6} lg={6}>
-              <b>Pizzeria</b>
               <a
                 href="https://downtownpizza.netlify.app/"
                 target="_blank"
@@ -191,9 +220,11 @@ const services = () => {
           </Row>
           <br />
           <br />
+          <hr />
+          <br />
+          <br />
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
-              <b>Music</b>
               <a
                 href="https://mediterranean.band/"
                 target="_blank"
@@ -216,31 +247,48 @@ const services = () => {
               </a>
             </Col>
             <Col sm={12} md={6} lg={6}>
-              <Card.Text style={{ marginTop: "200px" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                in lorem porta, accumsan elit sed, rhoncus eros. Sed sed gravida
-                odio. Nulla non accumsan justo, vitae tempus nibh. Duis varius
-                viverra purus quis porttitor. Duis ultricies in est vitae
-                sollicitudin. Vivamus porta erat at ipsum rhoncus, a lacinia mi
-                vestibulum. Nulla interdum nisl non laoreet tristique.
-                Suspendisse semper sit amet nisi ac mattis..
+              <h2>Artists and Musicians</h2>
+              <br />
+              <Card.Text>
+                This project was built as a space for artists to showcase their
+                portfolio and share their latest work in a clean and organized
+                way. The website includes links to the artist’s favorite
+                platforms and social media so visitors can follow and connect
+                easily. To help with audience growth, it features a signup
+                button for joining a mailing list, along with options for
+                selling merchandise. A contact form is also included for direct
+                communication, and external e-commerce apps can be linked for
+                more advanced selling needs. The goal was to create a simple but
+                effective online hub that gives artists the tools they need to
+                promote their work, grow their audience, and manage their
+                creative brand.
               </Card.Text>
             </Col>
           </Row>
+          <br />
+          <br />
+          <hr />
+          <br />
+          <br />
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
-              <Card.Text style={{ marginTop: "200px" }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                in lorem porta, accumsan elit sed, rhoncus eros. Sed sed gravida
-                odio. Nulla non accumsan justo, vitae tempus nibh. Duis varius
-                viverra purus quis porttitor. Duis ultricies in est vitae
-                sollicitudin. Vivamus porta erat at ipsum rhoncus, a lacinia mi
-                vestibulum. Nulla interdum nisl non laoreet tristique.
-                Suspendisse semper sit amet nisi ac mattis..
+              <h2>Entrepreneurs and Industry Professionals</h2>
+              <Card.Text>
+                This website was built as a model for industry professionals to
+                showcase their services and talents in a clear and effective
+                way. The design can be applied to almost any field—whether it’s
+                chefs, yoga instructors, personal trainers, lawyers, teachers,
+                or other professionals—giving them a space to highlight their
+                portfolio and skills for maximum exposure. The site focuses on
+                presenting information in a simple layout that makes it easy for
+                potential clients or students to learn more, view experience,
+                and get in touch. It works as both a personal brand hub and a
+                professional portfolio, helping users stand out in their
+                industry while giving them the tools to connect with a wider
+                audience..
               </Card.Text>
             </Col>
             <Col sm={12} md={6} lg={6}>
-              <b>Entrepreneur</b>
               <a
                 href="https://client-custom-website.netlify.app/"
                 target="_blank"
