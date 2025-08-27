@@ -68,10 +68,13 @@
   box-sizing: border-box;
 }
 
-.site_map {
-  color: #e0e8e7;
-  cursor: pointer;
-  text-decoration: underline;
+.sitemap {
+  overflow: hidden;
+}
+.sitemap li {
+  float: left;
+  width: 100px;
+  margin: 5px;
 }
 
 .contact_phone,

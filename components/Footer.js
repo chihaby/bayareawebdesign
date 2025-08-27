@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/Footer.module.css";
 import Link from "next/link";
+import Row from "react-bootstrap/Row";
+import ServiceArea from "../components/ServiceArea";
 
 const Footer = () => {
   const [values, setValues] = useState({
@@ -187,9 +189,12 @@ const Footer = () => {
             {isSubmitting && <LoadingSpinner />}
           </form>
         </div>
-        <div className={styles.footer_contact}>
-          <div className={styles.contact_phone}>📞 Phone: (510) 630-9741</div>
-          <div className={styles.contact_email}>
+        {/* Phone and Email  */}
+        <hr />
+        <Row className={styles.footer_contact}>
+          <hr />
+          <p className={styles.contact_phone}>📞 Phone: (510) 630-9741</p>
+          <p className={styles.contact_email}>
             <a
               href={`mailto:rad@bayareawebdesign.net`}
               style={{
@@ -201,40 +206,35 @@ const Footer = () => {
             >
               📧 Email: rad@bayareawebdesign.net
             </a>
-          </div>
+          </p>
+          <hr />
           <div style={{ color: "white" }}>
             <br />
             <span>
               <i className="fa fa-bars"> SITE MAP</i>
             </span>{" "}
             <br />
-            <ul>
+            <ul className={styles.sitemap}>
               <li>
-                <Link href="/" passHref>
-                  <span className={styles.site_map}> Home</span>
-                </Link>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/about" passHref>
-                  <span className={styles.site_map}> About</span>
-                </Link>
+                <Link href="/about">About</Link>
               </li>
               <li>
-                <Link href="/services" passHref>
-                  <span className={styles.site_map}> services</span>
-                </Link>
+                <Link href="/services">Services</Link>
               </li>
               <li>
-                <Link href="/contact" passHref>
-                  <span className={styles.site_map}> Contact</span>
-                </Link>
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </div>
+          <hr />
+          <ServiceArea />
           <div className={styles.copyright}>
             <p> Copyright &copy; 2025 BayAreaWebDesign.Net</p>
           </div>
-        </div>
+        </Row>
       </footer>
     </div>
   );

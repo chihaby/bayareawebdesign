@@ -1,0 +1,9 @@
+.areas {
+  overflow: hidden; /* clear floats */
+}
+
+.areas li {
+  float: left;
+  width: 150px;
+  margin: 5px;
+}
