@@ -119,7 +119,7 @@ const Footer = () => {
       <footer className={styles.footer}>
         <div className={styles.footer_form}>
           <br />
-          <h2>CONTACT US</h2>
+          <h1>CONTACT US</h1>
           <br />
           <div className={styles.title_section}>
             <p className={styles.paragraph}>
@@ -209,23 +209,28 @@ const Footer = () => {
           </p>
           <hr />
           <div style={{ color: "white" }}>
-            <br />
-            <span>
-              <i className="fa fa-bars"> SITE MAP</i>
-            </span>{" "}
+            <b>Sitemap</b>
             <br />
             <ul className={styles.sitemap}>
               <li>
-                <Link href="/">Home</Link>
+                <Link className={styles.link} href="/">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href="/about">About</Link>
+                <Link className={styles.link} href="/about">
+                  About
+                </Link>
               </li>
               <li>
-                <Link href="/services">Services</Link>
+                <Link className={styles.link} href="/services">
+                  Services
+                </Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link className={styles.link} href="/contact">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>

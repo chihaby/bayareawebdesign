@@ -5,88 +5,139 @@ import Link from "next/link";
 const ServiceArea = () => {
   return (
     <div className={styles.main}>
+      <b>Areas We Serve</b>
       <br />
-      <h2>Areas We Serve</h2>
       <br />
       <Row>
-        <ul className={styles.areas}>
+        <ul className={styles.service_areas}>
           <li>
-            <Link href="/">San Francisco</Link>
+            <Link className={styles.link} href="/">
+              San Francisco
+            </Link>
           </li>
           <li>
-            <Link href="/">Oakland</Link>
+            <Link className={styles.link} href="/">
+              Oakland
+            </Link>
           </li>
           <li>
-            <Link href="/">San Jose</Link>
+            <Link className={styles.link} href="/">
+              San Jose
+            </Link>
           </li>
           <li>
-            <Link href="/">Berkeley</Link>
+            <Link className={styles.link} href="/">
+              Berkeley
+            </Link>
           </li>
           <li>
-            <Link href="/">Alameda</Link>
+            <Link className={styles.link} href="/">
+              Alameda
+            </Link>
           </li>
           <li>
-            <Link href="/">Hayward</Link>
+            <Link className={styles.link} href="/">
+              Hayward
+            </Link>
           </li>
           <li>
-            <Link href="/">Palo Alto</Link>
+            <Link className={styles.link} href="/">
+              Palo Alto
+            </Link>
           </li>
           <li>
-            <Link href="/">Concord</Link>
+            <Link className={styles.link} href="/">
+              Concord
+            </Link>
           </li>
           <li>
-            <Link href="/">Moutain View</Link>
+            <Link className={styles.link} href="/">
+              Moutain View
+            </Link>
           </li>
           <li>
-            <Link href="/">Freemont</Link>
+            <Link className={styles.link} href="/">
+              Freemont
+            </Link>
           </li>
           <li>
-            <Link href="/">Redwood City</Link>
+            <Link className={styles.link} href="/">
+              Redwood City
+            </Link>
           </li>
           <li>
-            <Link href="/">Sunnyvale</Link>
+            <Link className={styles.link} href="/">
+              Sunnyvale
+            </Link>
           </li>
           <li>
-            <Link href="/">Sausalito</Link>
+            <Link className={styles.link} href="/">
+              Sausalito
+            </Link>
           </li>
           <li>
-            <Link href="/">Pleasanton</Link>
+            <Link className={styles.link} href="/">
+              Pleasanton
+            </Link>
           </li>
           <li>
-            <Link href="/">San Leandro</Link>
+            <Link className={styles.link} href="/">
+              San Leandro
+            </Link>
           </li>
           <li>
-            <Link href="/">Emeryville</Link>
+            <Link className={styles.link} href="/">
+              Emeryville
+            </Link>
           </li>
           <li>
-            <Link href="/">El Cerrito</Link>
+            <Link className={styles.link} href="/">
+              El Cerrito
+            </Link>
           </li>
           <li>
-            <Link href="/">Union City</Link>
+            <Link className={styles.link} href="/">
+              Union City
+            </Link>
           </li>
           <li>
-            <Link href="/">Pacifica</Link>
+            <Link className={styles.link} href="/">
+              Pacifica
+            </Link>
           </li>
           <li>
-            <Link href="/">Vallejo</Link>
+            <Link className={styles.link} href="/">
+              Vallejo
+            </Link>
           </li>
           <li>
-            <Link href="/">Antioch</Link>
+            <Link className={styles.link} href="/">
+              Antioch
+            </Link>
           </li>
           <li>
-            <Link href="/">Albany</Link>
+            <Link className={styles.link} href="/">
+              Albany
+            </Link>
           </li>
           <li>
-            <Link href="/">Livermore</Link>
+            <Link className={styles.link} href="/">
+              Livermore
+            </Link>
           </li>
           <li>
-            <Link href="/">San Ramon</Link>
+            <Link className={styles.link} href="/">
+              San Ramon
+            </Link>
           </li>
           <li>
-            <Link href="/">Fairfield</Link>
+            <Link className={styles.link} href="/">
+              Fairfield
+            </Link>
           </li>
         </ul>
       </Row>
+      <hr />
     </div>
   );
 };

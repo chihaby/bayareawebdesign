@@ -1,9 +1,18 @@
-.areas {
-  overflow: hidden; /* clear floats */
+.service_areas {
+  display: flex; /* arrange li side by side */
+  flex-wrap: wrap;
+  gap: 20px; /* spacing between items */
+  list-style: none; /* remove bullets */
+  padding: 0;
+  margin: 0;
 }
 
-.areas li {
-  float: left;
-  width: 150px;
-  margin: 5px;
+.link {
+  color: white; /* make text white */
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+}
+
+.link:hover {
+  color: #5baab2; /* hover color */
 }

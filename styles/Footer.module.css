@@ -69,12 +69,23 @@
 }
 
 .sitemap {
-  overflow: hidden;
+  display: flex; /* put <li> side by side */
+  flex-wrap: wrap; /* allow wrapping to next line if needed */
+  gap: 20px; /* space between items */
+  list-style: none; /* remove bullets */
+  padding: 0;
+  margin: 0;
 }
 .sitemap li {
-  float: left;
-  width: 100px;
-  margin: 5px;
+  margin: 0;
+}
+.link {
+  color: white; /* make text white */
+  text-decoration: none; /* remove underline */
+}
+
+.link:hover {
+  color: #5baab2; /* hover effect */
 }
 
 .contact_phone,
