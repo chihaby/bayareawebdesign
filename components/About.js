@@ -16,23 +16,19 @@ const About = () => {
           style={{ padding: "5px 50px", lineHeight: "1.8em" }}
         >
           <p>
-            At Bay Area Web Design, we build websites that work by keeping them
-            simple, clutter-free, and easy to navigate. Our focus is always on
-            inclusive design, making sure that anyone—regardless of ability—can
-            move through your site without confusion. We don{"’"}t just add
-            pretty colors or flashy visuals; we carefully study information
-            architecture and design the flow of content so visitors know exactly
-            where to go and what to do. By structuring information clearly, we
-            remove distractions and create a seamless experience that helps your
-            message stand out. Copywriting is just as important as design, which
-            is why we say more with less, using clear and direct language that
-            drives engagement. Whether we{"’"}re building a custom WordPress
-            site or coding from scratch, we prioritize performance,
-            accessibility, user interface, and overall user experience. Every
-            project blends UX/UI best practices with SEO and accessibility
-            standards, so your site isn{"’"}t just beautiful—it
-            {"’"}s functional, user-friendly, and built to connect your brand
-            with the right audience.
+            Have you ever visited a website only to feel overwhelmed by clutter,
+            inconsistent colors, or confusing navigation? At Bay Area Web
+            Design, we specialize in eliminating that frustration. Our focus
+            goes beyond aesthetics—we carefully structure information
+            architecture and design intuitive content flows so visitors
+            immediately know where to go and what to do. We understand that
+            effective copywriting is just as critical as design, which is why we
+            prioritize clear, concise messaging that engages and converts.
+            Whether we{"’"}re developing a custom WordPress site or coding from
+            the ground up, our priority is performance, accessibility, user
+            interface, and user experience. The result is a website that{"’"}s
+            not only visually stunning but also functional, user-friendly, and
+            purpose-driven—built to connect your brand with the right audience.
           </p>
           <br />
         </Col>
