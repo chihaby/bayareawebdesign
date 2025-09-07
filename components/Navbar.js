@@ -2,7 +2,7 @@ import styles from '../styles/Navbar.module.css';
 import Link from 'next/link';
 import Row from 'react-bootstrap/Row';
 import Image from 'next/image';
-import bawd from '../public/assets/logo/bawd.png';
+import bawd from '../public/assets/logo/bawd2.png';
 
 export default function Navbar() {
   return (
