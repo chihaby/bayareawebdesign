@@ -1,8 +1,8 @@
-import styles from "../styles/Navbar.module.css";
-import Link from "next/link";
-import Row from "react-bootstrap/Row";
-import Image from "next/image";
-import bawd from "../public/assets/logo/bawd.png";
+import styles from '../styles/Navbar.module.css';
+import Link from 'next/link';
+import Row from 'react-bootstrap/Row';
+import Image from 'next/image';
+import bawd from '../public/assets/logo/bawd2.png';
 
 export default function Navbar() {
   return (
@@ -11,30 +11,30 @@ export default function Navbar() {
         <nav>
           <ul>
             <li>
-              <Link href="/">
+              <Link href='/'>
                 <Image
-                  alt="bay area web design triangular logo"
+                  alt='bay area web design triangular logo'
                   src={bawd}
-                  width={55}
+                  width={45}
                   className={styles.logo}
                 />
                 <span className={styles.title}>Bay Area Web Design</span>
               </Link>
             </li>
             <li className={styles.ul_links}>
-              <Link href="/">Home</Link>
+              <Link href='/'>Home</Link>
             </li>
             <li className={styles.ul_links}>
-              <Link href="/about">About</Link>
+              <Link href='/about'>About</Link>
             </li>
             <li className={styles.ul_links}>
-              <Link href="/services">Services</Link>
+              <Link href='/services'>Services</Link>
             </li>
             {/* <li className={styles.ul_links}>
               <Link href="/blog">Blog</Link>
             </li> */}
             <li className={styles.ul_links}>
-              <Link href="/contact">Contact</Link>
+              <Link href='/contact'>Contact</Link>
             </li>
           </ul>
         </nav>
