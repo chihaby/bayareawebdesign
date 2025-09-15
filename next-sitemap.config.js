@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://www.bayareawebdesign.net", // Replace with your domain
+  siteUrl: "https://bayareawebdesign.net", // Replace with your domain
   generateRobotsTxt: true, // Generates a robots.txt file
   sitemapSize: 700, // Split sitemap into multiple files if you have many URLs
   outDir: "./public", // The output directory for your sitemap files

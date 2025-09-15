@@ -32,4 +32,4 @@ User-agent: You.com
 Allow: /
 
 # Sitemap
-Sitemap: https://www.bayareawebdesign.net/sitemap.xml
+Sitemap: https://bayareawebdesign.net/sitemap.xml

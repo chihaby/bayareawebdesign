@@ -116,7 +116,7 @@ export const metadata: Metadata = {
   //   yahoo: "your-yahoo-verification",
   // },
   alternates: {
-    canonical: "https://www.bayareawebdesign.net", // 👈 canonical URL
+    canonical: "https://bayareawebdesign.net", // 👈 canonical URL
   },
 };
 
@@ -195,7 +195,10 @@ export default function RootLayout({
         {/* End Google Tag Manager */}
 
         {/* <!-- Google tag (gtag.js) --> */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5KF2H4BBJE"></Script>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-5KF2H4BBJE"
+        ></Script>
         <Script id="ga-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -205,20 +208,24 @@ export default function RootLayout({
           `}
         </Script>
 
-      <Script src="https://analytics.ahrefs.com/analytics.js" data-key="vxJO+bXMknJX5j7Vpleg1A" async></Script>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="vxJO+bXMknJX5j7Vpleg1A"
+          async
+        ></Script>
 
         <LocalBusinessSchema />
       </head>
       <body
       // className={`${geistSans.className} ${geistMono.className} antialiased`}
       >
-                {/* Google Tag Manager (noscript) */}
+        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W5H9XBJ6"
             height="0"
             width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
+            style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
         {/* End Google Tag Manager (noscript) */}

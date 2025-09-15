@@ -105,33 +105,6 @@ const Benefit = () => {
           <Col sm={12} md={4} lg={4}>
             <div className={styles.icon}>
               <Image
-                src={copy}
-                alt="writing for the web"
-                width={130}
-                style={{
-                  margin: "auto",
-                }}
-              />
-            </div>
-            <div
-              className={styles.item_title}
-              style={{
-                fontSize: "18px",
-                fontWeight: "600",
-                textAlign: "center",
-              }}
-            >
-              Copy
-            </div>
-            <br />
-            <div className={styles.description}>
-              Engaging web copy communicates your message clearly, connects with
-              your audience, and drives results.{" "}
-            </div>
-          </Col>
-          <Col sm={12} md={4} lg={4}>
-            <div className={styles.icon}>
-              <Image
                 src={axe}
                 alt="accessibility"
                 width={130}
@@ -155,6 +128,33 @@ const Benefit = () => {
               A fully accessible website that meets the latest legal
               accessibility standards, allowing all users to engage with the
               content.
+            </div>
+          </Col>
+          <Col sm={12} md={4} lg={4}>
+            <div className={styles.icon}>
+              <Image
+                src={copy}
+                alt="writing for the web"
+                width={130}
+                style={{
+                  margin: "auto",
+                }}
+              />
+            </div>
+            <div
+              className={styles.item_title}
+              style={{
+                fontSize: "18px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
+              Copy
+            </div>
+            <br />
+            <div className={styles.description}>
+              Engaging web copy communicates your message clearly, connects with
+              your audience, and drives results.{" "}
             </div>
           </Col>
           <Col sm={12} md={4} lg={4}>

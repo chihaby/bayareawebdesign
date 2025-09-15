@@ -42,32 +42,34 @@ export default function about() {
           <Col>
             {/* <h3>Rad</h3> */}
             <p>
-              I{"'"}m Rad, a seasoned web developer with extensive experience. I
-              {"'"}ve learned a lot over the years and specialize in making
-              user-friendly websites. I use my expertise to ensure your website
-              is engaging and effective.
+              I{"'"}m Rad, a professional web developer with years of experience
+              creating user-friendly and high-performing websites. Over time, I
+              {"'"}ve honed my skills to focus on building websites that are not
+              only visually appealing but also intuitive, accessible, and
+              effective in achieving business goals.
               <br />
               <br />
-              My primary focus centers on four critical components: Design, User
-              Experience (UX/UI), performance, and accessibility, each playing a
-              significant role in website development. While design holds
-              undeniable importance, it does not solely determine a website{"'"}
-              s success. Therefore, I prioritize UX/UI, striving to create an
-              intuitive and user-centric website that enhances overall user
-              experience and facilitates conversions. Additionally, ensuring
-              accessibility for people with disabilities is imperative, as it
-              enables them to navigate and utilize the web effectively,
-              fostering inclusivity and equal access to information and
-              services.
+              My work centers on four key pillars: Design, User Experience
+              (UX/UI), Performance, and Accessibility. While design is
+              important, it alone does not determine a website{"'"}s success.
+              That{"'"}s why I prioritize UX/UI, crafting websites that are easy
+              to navigate, engaging, and built to convert visitors into
+              customers.
               <br />
               <br />
-              Finally, I recognize the criticality of performance in
-              contemporary website development. Hence, I meticulously prioritize
-              performance optimization, aiming not only to enhance your website
-              {"'"}s SEO but also to elevate user experience through swift
-              loading times and seamless navigation. Leveraging my expertise in
-              these domains, I am confident in my ability to craft a website
-              that surpasses your expectations and yields tangible outcomes.
+              Accessibility is equally critical. I ensure that every website I
+              develop is usable by people with disabilities, following best
+              practices to provide inclusive access to information and services.
+              This approach fosters a more equitable web experience for all
+              users.
+              <br />
+              <br />
+              Performance is another top priority. I optimize websites to load
+              quickly, run smoothly, and provide seamless
+              interactions—benefiting both users and SEO. By combining
+              thoughtful design, intuitive UX, accessibility, and high
+              performance, I deliver websites that not only meet expectations
+              but also drive meaningful results.
             </p>
           </Col>
         </Row>
