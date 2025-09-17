@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import React from "react";
+import Link from "next/link";
 
 async function getPost(slug: string) {
   console.log("Fetching post with slug:", slug);
@@ -271,20 +272,13 @@ export default async function BlogPostPage({
             <p>Please check the browser console for API response details.</p>
           </div>
           <p className="mt-4">
-            <a href="/blog" className="text-blue-600 hover:underline">
+            <Link href="/blog" className="text-blue-600 hover:underline">
               ← Back to Blog
-            </a>
+            </Link>
           </p>
         </div>
       );
     }
-
-    console.log("=== POST FOUND, RENDERING ===");
-    console.log("Full post object:", JSON.stringify(post, null, 2));
-    console.log("Post.title:", post.title);
-    console.log("Post.content:", post.content);
-    console.log("Post.image:", JSON.stringify(post.image, null, 2));
-    console.log("All post keys:", Object.keys(post));
 
     return (
       <div className="p-6 max-w-4xl mx-auto">
@@ -332,9 +326,9 @@ export default async function BlogPostPage({
           </div>
 
           <div className="mt-8">
-            <a href="/blog" className="text-blue-600 hover:underline">
+            <Link href="/blog" className="text-blue-600 hover:underline">
               ← Back to Blog
-            </a>
+            </Link>
           </div>
         </article>
       </div>
@@ -351,9 +345,9 @@ export default async function BlogPostPage({
           {error instanceof Error ? error.message : String(error)}
         </pre>
         <p className="mt-4">
-          <a href="/blog" className="text-blue-600 hover:underline">
+          <Link href="/blog" className="text-blue-600 hover:underline">
             ← Back to Blog
-          </a>
+          </Link>
         </p>
       </div>
     );
