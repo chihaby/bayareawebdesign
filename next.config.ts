@@ -8,18 +8,12 @@ const nextConfig = {
         port: '1337',
         pathname: '/uploads/**',
       },
+      // Add your production Strapi domain when you deploy
       {
         protocol: 'https',
-        hostname: 'localhost',
-        port: '1337',
+        hostname: 'https://loved-pleasure-cb5eab8cd5.strapiapp.com',
         pathname: '/uploads/**',
       },
-      // Add your production Strapi domain when you deploy
-      // {
-      //   protocol: 'https',
-      //   hostname: 'your-strapi-domain.com',
-      //   pathname: '/uploads/**',
-      // },
     ],
   },
 };

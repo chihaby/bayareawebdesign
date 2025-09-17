@@ -1,3 +1,8 @@
 Strapi
 To run strapi use the command npm run develop
 
+Visit
+https://cloud.strapi.io/projects/bawd-98e1131d93/production/deployments
+
+Admin panel
+https://loved-pleasure-cb5eab8cd5.strapiapp.com/admin
