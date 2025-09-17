@@ -1,3 +1,6 @@
+import Image from "next/image";
+import type { Metadata } from "next";
+
 async function getPost(slug: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?filters[slug][$eq]=${slug}&populate=*`,
@@ -23,13 +26,24 @@ async function getPost(slug: string) {
   return json.data[0]; // Strapi returns array for filters
 }
 
-// ✅ This is where SEO metadata goes
+// ✅ Updated type definition for Next.js 15
+type BlogPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await getPost(params.slug);
+}: BlogPageProps): Promise<Metadata> {
+  // ✅ Await the params Promise
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return {
+      title: "Post not found",
+    };
+  }
+
   return {
     title: post.attributes.title,
     description: post.attributes.content.slice(0, 150),
@@ -53,20 +67,34 @@ export async function generateStaticParams() {
   return data.map((post: any) => ({ slug: post.attributes.slug }));
 }
 
+// ✅ Updated component props type and await params
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getPost(params.slug);
+  // ✅ Await the params Promise
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return (
+      <div className="p-6">
+        <h1 className="text-4xl font-bold mb-4">Post not found</h1>
+        <p>The requested blog post could not be found.</p>
+      </div>
+    );
+  }
 
   return (
     <article className="p-6">
       <h1 className="text-4xl font-bold mb-4">{post.attributes.title}</h1>
       {post.attributes.coverImage && (
-        <img
+        <Image
           src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${post.attributes.coverImage.data.attributes.url}`}
           alt={post.attributes.title}
+          width={800}
+          height={400}
           className="mb-4 rounded-lg"
         />
       )}
