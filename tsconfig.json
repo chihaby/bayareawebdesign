@@ -19,7 +19,9 @@
     "incremental": true,
     "forceConsistentCasingInFileNames": true, // ✅ important for type consistency
     "types": [
-      "node"
+      "node",
+      "react",
+      "react-dom"
     ], // ✅ ensures Node.js globals are available
     "plugins": [
       {
