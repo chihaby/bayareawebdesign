@@ -1,22 +1,13 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import React from "react";
-import Link from "next/link";
 
 async function getPost(slug: string) {
-  console.log("Fetching post with slug:", slug);
-  console.log(
-    "NEXT_PUBLIC_STRAPI_API_URL:",
-    process.env.NEXT_PUBLIC_STRAPI_API_URL
-  );
+  const strapiUrl =
+    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+    "https://loved-pleasure-cb5eab8cd5.strapiapp.com";
 
-  if (!process.env.NEXT_PUBLIC_STRAPI_API_URL) {
-    console.error("NEXT_PUBLIC_STRAPI_API_URL is not set!");
-    return null;
-  }
-
-  const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
-  console.log("Full API URL:", url);
+  const url = `${strapiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
 
   try {
     const res = await fetch(url, {
@@ -26,28 +17,18 @@ async function getPost(slug: string) {
       next: { revalidate: 60 },
     });
 
-    console.log("Response status:", res.status);
-    console.log("Response ok:", res.ok);
-
     if (!res.ok) {
-      const errorText = await res.text();
-      console.error("Failed to fetch post", res.status, errorText);
       return null;
     }
 
     const json = await res.json();
-    console.log("API response:", JSON.stringify(json, null, 2));
 
     if (!json.data || !json.data.length) {
-      console.warn("Post not found for slug:", slug);
-      console.log("Available posts from API:", json);
       return null;
     }
 
-    console.log("Found post:", json.data[0]);
     return json.data[0];
   } catch (error) {
-    console.error("Network error:", error);
     return null;
   }
 }
@@ -139,14 +120,11 @@ export async function generateStaticParams() {
 
 // Helper function to render Strapi rich text content
 function renderContent(content: any[]) {
-  console.log("Rendering content:", content);
   if (!Array.isArray(content)) {
-    console.log("Content is not an array:", typeof content);
     return React.createElement("p", {}, "Content format error - not an array");
   }
 
   return content.map((block, index) => {
-    console.log(`Rendering block ${index}:`, block);
     switch (block.type) {
       case "heading":
         const headingText =
@@ -217,7 +195,6 @@ function renderContent(content: any[]) {
         );
 
       default:
-        console.log(`Unknown block type: ${block.type}`);
         return React.createElement(
           "div",
           {
@@ -241,20 +218,7 @@ export default async function BlogPostPage({
   try {
     // ✅ Await the params Promise
     const { slug } = await params;
-    console.log("BlogPostPage - received slug:", slug);
-    console.log(
-      "NEXT_PUBLIC_STRAPI_API_URL:",
-      process.env.NEXT_PUBLIC_STRAPI_API_URL
-    );
-
     const post = await getPost(slug);
-    console.log("BlogPostPage - received post:", post);
-    console.log("Post type:", typeof post);
-    console.log(
-      "Post keys:",
-      post ? Object.keys(post) : "post is null/undefined"
-    );
-
     if (!post) {
       console.log("=== POST NOT FOUND ===");
       return (
@@ -272,9 +236,9 @@ export default async function BlogPostPage({
             <p>Please check the browser console for API response details.</p>
           </div>
           <p className="mt-4">
-            <Link href="/blog" className="text-blue-600 hover:underline">
+            <a href="/blog" className="text-blue-600 hover:underline">
               ← Back to Blog
-            </Link>
+            </a>
           </p>
         </div>
       );
@@ -290,18 +254,65 @@ export default async function BlogPostPage({
           {/* Cover Image */}
           {post?.image && post.image.url && (
             <div className="mb-6">
-              <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${post.image.url}`}
-                alt={post.image.alternativeText || post.title || "Cover image"}
-                width={post.image.width || 800}
-                height={post.image.height || 400}
-                className="w-full h-auto rounded-lg shadow-lg"
-                priority
-              />
-              <p className="text-xs text-gray-500 mt-2">
-                Original: {post.image.width}x{post.image.height} |{" "}
-                {post.image.name}
-              </p>
+              {(() => {
+                // More robust URL cleaning logic
+                let rawUrl = post.image.url;
+                let finalUrl = rawUrl;
+
+                // If URL is already absolute (contains full domain), use as-is
+                if (
+                  rawUrl &&
+                  (rawUrl.includes("strapiapp.com") ||
+                    rawUrl.startsWith("https://") ||
+                    rawUrl.startsWith("http://"))
+                ) {
+                  finalUrl = rawUrl;
+                }
+                // If URL starts with /, it's relative - prepend the API URL
+                else if (rawUrl && rawUrl.startsWith("/")) {
+                  const apiUrl =
+                    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+                    "https://loved-pleasure-cb5eab8cd5.strapiapp.com";
+                  finalUrl = `${apiUrl}${rawUrl}`;
+                }
+                // Fallback for any other format
+                else {
+                  finalUrl = rawUrl;
+                }
+
+                return (
+                  <>
+                    {/* Test with regular img first - no event handlers */}
+                    <div className="mb-4">
+                      <img
+                        src={finalUrl}
+                        alt={
+                          post.image.alternativeText ||
+                          post.title ||
+                          "Cover image"
+                        }
+                        className="w-full h-auto max-w-md rounded-lg shadow-lg"
+                      />
+                    </div>
+
+                    {/* Next.js Image - no event handlers */}
+                    <div>
+                      <Image
+                        src={finalUrl}
+                        alt={
+                          post.image.alternativeText ||
+                          post.title ||
+                          "Cover image"
+                        }
+                        width={post.image.width || 800}
+                        height={post.image.height || 400}
+                        className="w-full h-auto rounded-lg shadow-lg"
+                        priority
+                      />
+                    </div>
+                  </>
+                );
+              })()}
             </div>
           )}
 
@@ -326,9 +337,9 @@ export default async function BlogPostPage({
           </div>
 
           <div className="mt-8">
-            <Link href="/blog" className="text-blue-600 hover:underline">
+            <a href="/blog" className="text-blue-600 hover:underline">
               ← Back to Blog
-            </Link>
+            </a>
           </div>
         </article>
       </div>
@@ -345,9 +356,9 @@ export default async function BlogPostPage({
           {error instanceof Error ? error.message : String(error)}
         </pre>
         <p className="mt-4">
-          <Link href="/blog" className="text-blue-600 hover:underline">
+          <a href="/blog" className="text-blue-600 hover:underline">
             ← Back to Blog
-          </Link>
+          </a>
         </p>
       </div>
     );

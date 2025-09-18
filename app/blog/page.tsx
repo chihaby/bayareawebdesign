@@ -14,22 +14,49 @@ async function getPosts() {
     );
 
     if (!res.ok) {
-      console.error("Failed to fetch posts", res.status, await res.text());
       return [];
     }
 
     const json = await res.json();
-    console.log("Posts data:", JSON.stringify(json, null, 2)); // Debug log
-
     return json.data || [];
   } catch (error) {
-    console.error("Error fetching posts:", error);
     return [];
   }
 }
 
 export default async function BlogPage() {
   const posts = await getPosts();
+
+  // Helper function to get correct image URL
+  const getImageUrl = (imageUrl: string) => {
+    if (
+      imageUrl &&
+      (imageUrl.includes("strapiapp.com") ||
+        imageUrl.startsWith("https://") ||
+        imageUrl.startsWith("http://"))
+    ) {
+      return imageUrl; // Absolute URL
+    }
+    if (imageUrl && imageUrl.startsWith("/")) {
+      return `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${imageUrl}`; // Relative URL
+    }
+    return imageUrl; // Fallback
+  };
+
+  // Helper function to extract text from rich text content for preview
+  const extractTextFromContent = (content: any[]): string => {
+    if (!Array.isArray(content)) return "";
+
+    return content
+      .map((block) => {
+        if (block.children && Array.isArray(block.children)) {
+          return block.children.map((child: any) => child.text || "").join("");
+        }
+        return "";
+      })
+      .join(" ")
+      .trim();
+  };
 
   return (
     <div className="container mx-auto p-6">
@@ -40,36 +67,14 @@ export default async function BlogPage() {
       ) : (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post: any) => {
-            // Debug: Log each post to see the structure
-            console.log("Individual post:", post);
-
-            // Access fields directly (not under attributes)
             const slug = post.slug;
             const title = post.title || "Untitled";
             const content = post.content || [];
             const coverImage = post.image;
 
             if (!slug) {
-              console.warn("Post missing slug:", post);
               return null; // Skip posts without slugs
             }
-
-            // Extract text from rich text content for preview
-            const extractTextFromContent = (content: any[]): string => {
-              if (!Array.isArray(content)) return "";
-
-              return content
-                .map((block) => {
-                  if (block.children && Array.isArray(block.children)) {
-                    return block.children
-                      .map((child: any) => child.text || "")
-                      .join("");
-                  }
-                  return "";
-                })
-                .join(" ")
-                .trim();
-            };
 
             const contentPreview = extractTextFromContent(content);
 
@@ -81,7 +86,7 @@ export default async function BlogPage() {
                 {coverImage && coverImage.url && (
                   <div className="mb-4">
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${coverImage.url}`}
+                      src={getImageUrl(coverImage.url)}
                       alt={coverImage.alternativeText || title}
                       width={400}
                       height={200}
