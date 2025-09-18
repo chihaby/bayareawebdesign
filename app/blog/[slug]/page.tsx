@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import React from "react";
+import Link from "next/link";
 
 async function getPost(slug: string) {
   const strapiUrl =
@@ -236,9 +237,9 @@ export default async function BlogPostPage({
             <p>Please check the browser console for API response details.</p>
           </div>
           <p className="mt-4">
-            <a href="/blog" className="text-blue-600 hover:underline">
+            <Link href="/blog" className="text-blue-600 hover:underline">
               ← Back to Blog
-            </a>
+            </Link>
           </p>
         </div>
       );
@@ -256,7 +257,7 @@ export default async function BlogPostPage({
             <div className="mb-6">
               {(() => {
                 // More robust URL cleaning logic
-                let rawUrl = post.image.url;
+                const rawUrl = post.image.url;
                 let finalUrl = rawUrl;
 
                 // If URL is already absolute (contains full domain), use as-is
@@ -284,7 +285,7 @@ export default async function BlogPostPage({
                   <>
                     {/* Test with regular img first - no event handlers */}
                     <div className="mb-4">
-                      <img
+                      <Image
                         src={finalUrl}
                         alt={
                           post.image.alternativeText ||
@@ -337,9 +338,9 @@ export default async function BlogPostPage({
           </div>
 
           <div className="mt-8">
-            <a href="/blog" className="text-blue-600 hover:underline">
+            <Link href="/blog" className="text-blue-600 hover:underline">
               ← Back to Blog
-            </a>
+            </Link>
           </div>
         </article>
       </div>
@@ -356,9 +357,9 @@ export default async function BlogPostPage({
           {error instanceof Error ? error.message : String(error)}
         </pre>
         <p className="mt-4">
-          <a href="/blog" className="text-blue-600 hover:underline">
+          <Link href="/blog" className="text-blue-600 hover:underline">
             ← Back to Blog
-          </a>
+          </Link>
         </p>
       </div>
     );
