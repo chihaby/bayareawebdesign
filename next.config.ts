@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [
+      // Local dev (Strapi running locally)
       {
         protocol: 'http',
         hostname: 'localhost',
@@ -14,17 +15,17 @@ const nextConfig = {
         port: '1337',
         pathname: '/uploads/**',
       },
-      // Your actual Strapi Cloud domain
+      // Strapi Cloud media CDN
       {
         protocol: 'https',
-        hostname: 'loved-pleasure-cb5eab8cd5.strapiapp.com',
-        pathname: '/uploads/**',
+        hostname: 'loved-pleasure-cb5eab8cd5.media.strapiapp.com',
+        pathname: '/**',
       },
-      // Generic Strapi Cloud pattern (backup)
+      // Optional: catch-all for any Strapi Cloud project media
       {
         protocol: 'https',
-        hostname: '*.strapiapp.com',
-        pathname: '/uploads/**',
+        hostname: '*.media.strapiapp.com',
+        pathname: '/**',
       },
     ],
   },
