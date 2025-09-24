@@ -2,6 +2,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 async function getPost(slug: string) {
   const strapiUrl =
@@ -246,103 +248,94 @@ export default async function BlogPostPage({
     }
 
     return (
-      <div className="p-6 max-w-4xl mx-auto">
-        <article>
-          <h1 className="text-4xl font-bold mb-4">
-            {post?.title || "No Title Found"}
-          </h1>
+      <div>
+        <Navbar />
+        <div className="p-6 max-w-4xl mx-auto">
+          <article>
+            <h1 className="text-4xl font-bold mb-4">
+              {post?.title || "No Title Found"}
+            </h1>
 
-          {/* Cover Image */}
-          {post?.image && post.image.url && (
-            <div className="mb-6">
-              {(() => {
-                // More robust URL cleaning logic
-                const rawUrl = post.image.url;
-                let finalUrl = rawUrl;
+            {/* Cover Image */}
+            {post?.image && post.image.url && (
+              <div className="mb-6">
+                {(() => {
+                  // More robust URL cleaning logic
+                  const rawUrl = post.image.url;
+                  let finalUrl = rawUrl;
 
-                // If URL is already absolute (contains full domain), use as-is
-                if (
-                  rawUrl &&
-                  (rawUrl.includes("strapiapp.com") ||
-                    rawUrl.startsWith("https://") ||
-                    rawUrl.startsWith("http://"))
-                ) {
-                  finalUrl = rawUrl;
-                }
-                // If URL starts with /, it's relative - prepend the API URL
-                else if (rawUrl && rawUrl.startsWith("/")) {
-                  const apiUrl =
-                    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
-                    "https://loved-pleasure-cb5eab8cd5.strapiapp.com";
-                  finalUrl = `${apiUrl}${rawUrl}`;
-                }
-                // Fallback for any other format
-                else {
-                  finalUrl = rawUrl;
-                }
+                  // If URL is already absolute (contains full domain), use as-is
+                  if (
+                    rawUrl &&
+                    (rawUrl.includes("strapiapp.com") ||
+                      rawUrl.startsWith("https://") ||
+                      rawUrl.startsWith("http://"))
+                  ) {
+                    finalUrl = rawUrl;
+                  }
+                  // If URL starts with /, it's relative - prepend the API URL
+                  else if (rawUrl && rawUrl.startsWith("/")) {
+                    const apiUrl =
+                      process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+                      "https://loved-pleasure-cb5eab8cd5.strapiapp.com";
+                    finalUrl = `${apiUrl}${rawUrl}`;
+                  }
+                  // Fallback for any other format
+                  else {
+                    finalUrl = rawUrl;
+                  }
 
-                return (
-                  <>
-                    {/* Test with regular img first - no event handlers */}
-                    <div className="mb-4">
-                      <Image
-                        src={finalUrl}
-                        alt={
-                          post.image.alternativeText ||
-                          post.title ||
-                          "Cover image"
-                        }
-                        className="w-full h-auto max-w-md rounded-lg shadow-lg"
-                      />
-                    </div>
-
-                    {/* Next.js Image - no event handlers */}
-                    <div>
-                      <Image
-                        src={finalUrl}
-                        alt={
-                          post.image.alternativeText ||
-                          post.title ||
-                          "Cover image"
-                        }
-                        width={post.image.width || 800}
-                        height={post.image.height || 400}
-                        className="w-full h-auto rounded-lg shadow-lg"
-                        priority
-                      />
-                    </div>
-                  </>
-                );
-              })()}
-            </div>
-          )}
-
-          {/* Show if image exists but no URL found */}
-          {post?.image && !post.image.url && (
-            <div className="mb-6 p-4 bg-red-100 rounded">
-              <p className="text-red-800">
-                ❌ Image found but no URL available:
-              </p>
-              <pre className="text-xs mt-2">
-                {JSON.stringify(post.image, null, 2)}
-              </pre>
-            </div>
-          )}
-
-          <div className="prose prose-lg max-w-none">
-            {post?.content ? (
-              renderContent(post.content)
-            ) : (
-              <p>No content found</p>
+                  return (
+                    <>
+                      {/* Next.js Image - no event handlers */}
+                      <div>
+                        <Image
+                          src={finalUrl}
+                          alt={
+                            post.image.alternativeText ||
+                            post.title ||
+                            "Cover image"
+                          }
+                          width={post.image.width || 800}
+                          height={post.image.height || 400}
+                          className="w-full h-auto rounded-lg shadow-lg"
+                          priority
+                        />
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
             )}
-          </div>
 
-          <div className="mt-8">
-            <Link href="/blog" className="text-blue-600 hover:underline">
-              ← Back to Blog
-            </Link>
-          </div>
-        </article>
+            {/* Show if image exists but no URL found */}
+            {post?.image && !post.image.url && (
+              <div className="mb-6 p-4 bg-red-100 rounded">
+                <p className="text-red-800">
+                  ❌ Image found but no URL available:
+                </p>
+                <pre className="text-xs mt-2">
+                  {JSON.stringify(post.image, null, 2)}
+                </pre>
+              </div>
+            )}
+
+            <div className="prose prose-lg max-w-none">
+              {post?.content ? (
+                renderContent(post.content)
+              ) : (
+                <p>No content found</p>
+              )}
+            </div>
+
+            <div className="mt-8">
+              <Link href="/blog" className="text-blue-600 hover:underline">
+                ← Back to Blog
+              </Link>
+            </div>
+          </article>
+        </div>
+        <Footer />
       </div>
     );
   } catch (error) {

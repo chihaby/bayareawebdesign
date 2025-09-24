@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 async function getPosts() {
   try {
@@ -59,66 +61,70 @@ export default async function BlogPage() {
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-8">Blog</h1>
+    <>
+      <Navbar />
+      <div className="container mx-auto p-6">
+        <h1 className="text-4xl font-bold mb-8">Blog</h1>
 
-      {posts.length === 0 ? (
-        <p className="text-gray-600">No blog posts found.</p>
-      ) : (
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post: any) => {
-            const slug = post.slug;
-            const title = post.title || "Untitled";
-            const content = post.content || [];
-            const coverImage = post.image;
+        {posts.length === 0 ? (
+          <p className="text-gray-600">No blog posts found.</p>
+        ) : (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post: any) => {
+              const slug = post.slug;
+              const title = post.title || "Untitled";
+              const content = post.content || [];
+              const coverImage = post.image;
 
-            if (!slug) {
-              return null; // Skip posts without slugs
-            }
+              if (!slug) {
+                return null; // Skip posts without slugs
+              }
 
-            const contentPreview = extractTextFromContent(content);
+              const contentPreview = extractTextFromContent(content);
 
-            return (
-              <article
-                key={post.id}
-                className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
-              >
-                {coverImage && coverImage.url && (
-                  <div className="mb-4">
-                    <Image
-                      src={getImageUrl(coverImage.url)}
-                      alt={coverImage.alternativeText || title}
-                      width={400}
-                      height={200}
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  </div>
-                )}
+              return (
+                <article
+                  key={post.id}
+                  className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+                >
+                  {coverImage && coverImage.url && (
+                    <div className="mb-4">
+                      <Image
+                        src={getImageUrl(coverImage.url)}
+                        alt={coverImage.alternativeText || title}
+                        width={400}
+                        height={200}
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                    </div>
+                  )}
 
-                <h2 className="text-2xl font-semibold mb-2">
+                  <h2 className="text-2xl font-semibold mb-2">
+                    <Link
+                      href={`/blog/${slug}`}
+                      className="hover:text-blue-600 transition-colors"
+                    >
+                      {title}
+                    </Link>
+                  </h2>
+
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {contentPreview.slice(0, 150)}...
+                  </p>
+
                   <Link
                     href={`/blog/${slug}`}
-                    className="hover:text-blue-600 transition-colors"
+                    className="text-blue-600 hover:underline font-medium"
                   >
-                    {title}
+                    Read More →
                   </Link>
-                </h2>
-
-                <p className="text-gray-600 mb-4 line-clamp-3">
-                  {contentPreview.slice(0, 150)}...
-                </p>
-
-                <Link
-                  href={`/blog/${slug}`}
-                  className="text-blue-600 hover:underline font-medium"
-                >
-                  Read More →
-                </Link>
-              </article>
-            );
-          })}
-        </div>
-      )}
-    </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }

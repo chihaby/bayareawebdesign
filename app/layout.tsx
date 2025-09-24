@@ -216,9 +216,7 @@ export default function RootLayout({
 
         <LocalBusinessSchema />
       </head>
-      <body
-      // className={`${geistSans.className} ${geistMono.className} antialiased`}
-      >
+      <body>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
