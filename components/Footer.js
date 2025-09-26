@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import ReCAPTCHA from "react-google-recaptcha";
 import styles from "../styles/Footer.module.css";
 import Link from "next/link";
 import Row from "react-bootstrap/Row";
@@ -8,24 +9,24 @@ import ServiceArea from "../components/ServiceArea";
 
 const Footer = () => {
   const [values, setValues] = useState({
-    name: "", // Changed from 'name' to 'name' to match your API
+    name: "",
     email: "",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
-  if (valid) {
-    console.log("It’s valid!");
-  }
-  const [isSubmitting, setIsSubmitting] = useState(false); // Better loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const recaptchaRef = useRef(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const router = useRouter();
 
   const handleNameInputChange = (event) => {
     setValues((prev) => ({
       ...prev,
-      name: event.target.value, // Changed to name
+      name: event.target.value,
     }));
   };
 
@@ -46,15 +47,20 @@ const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate fields
-    if (values.name && values.email && values.message) {
-      setValid(true);
-    } else {
+    // Validate required fields
+    if (!values.name || !values.email || !values.message) {
       setValid(false);
       setSubmitted(true);
-      return; // Don't proceed if validation fails
+      return;
     }
 
+    // Ensure captcha solved
+    if (!captchaToken) {
+      alert("Please verify that you are human.");
+      return;
+    }
+
+    setValid(true);
     setSubmitted(true);
     setIsSubmitting(true);
 
@@ -64,13 +70,12 @@ const Footer = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, token: captchaToken }),
       });
 
       if (!res.ok) {
-        const errorData = await res.json();
-        console.error("Server error:", errorData.error);
-        console.error("Error details:", errorData.details);
+        const errorData = await res.json().catch(() => ({}));
+        console.error("Server error:", errorData.error || res.statusText);
         setIsSubmitting(false);
         return;
       }
@@ -90,24 +95,31 @@ const Footer = () => {
   };
 
   const resetInputValues = () => {
-    // Fix: Update all values in one setState call
     setValues({
       name: "",
       email: "",
       message: "",
     });
-
     setSubmitted(false);
     setValid(false);
     setIsSubmitting(false);
 
-    // Redirect to thank you page
+    // Reset captcha after submission
+    if (
+      recaptchaRef.current &&
+      typeof recaptchaRef.current.reset === "function"
+    ) {
+      recaptchaRef.current.reset();
+    }
+    setCaptchaToken(null);
+
+    // Redirect to thank-you page
     setTimeout(() => {
       router.push("/thank-you");
     }, 300);
   };
 
-  // Custom spinner component to avoid Bootstrap SSR issues
+  // Spinner (no Bootstrap SSR issues)
   const LoadingSpinner = () => (
     <div className={styles.spinner}>
       <div className={styles.spinnerRing}></div>
@@ -128,6 +140,7 @@ const Footer = () => {
               to connecting with you!
             </p>
           </div>
+
           <form onSubmit={handleSubmit}>
             <div className={styles.label}>Name</div>
             <br />
@@ -137,15 +150,15 @@ const Footer = () => {
               id="name"
               placeholder="Your name"
               required
-              value={values.name} // Changed to name
+              value={values.name}
               onChange={handleNameInputChange}
             />
-            {submitted &&
-              !values.name && ( // Changed to name
-                <div id="first-name-error">Please enter your full name</div>
-              )}
+            {submitted && !values.name && (
+              <div id="first-name-error">Please enter your full name</div>
+            )}
             <br />
             <br />
+
             <div className={styles.label}>Email</div>
             <br />
             <input
@@ -162,11 +175,11 @@ const Footer = () => {
             )}
             <br />
             <br />
+
             <div className={styles.label}>Message</div>
             <br />
             <textarea
               className={styles.form_message}
-              type="text"
               id="message"
               placeholder="Message"
               required
@@ -178,8 +191,17 @@ const Footer = () => {
             )}
             <br />
             <br />
+
+            {/* Google reCAPTCHA */}
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={(token) => setCaptchaToken(token)}
+            />
+            <br />
+
             <button
-              type="submit" // Fixed typo: was "subit"
+              type="submit"
               id="btnsubmit"
               className={styles.form_submit}
               disabled={isSubmitting}
@@ -189,7 +211,8 @@ const Footer = () => {
             {isSubmitting && <LoadingSpinner />}
           </form>
         </div>
-        {/* Phone and Email  */}
+
+        {/* Contact Info */}
         <hr />
         <Row className={styles.footer_contact}>
           <hr />
