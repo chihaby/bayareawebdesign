@@ -260,7 +260,7 @@ const Footer = () => {
           <hr />
           <ServiceArea />
           <div className={styles.copyright}>
-            <p> Copyright &copy; 2025 BayAreaWebDesign.Net</p>
+            <p> Copyright &copy; 2025 Inclusive Web Design</p>
           </div>
         </Row>
       </footer>
