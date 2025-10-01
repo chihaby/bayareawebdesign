@@ -122,55 +122,195 @@ export async function generateStaticParams() {
 }
 
 // Helper function to render Strapi rich text content
-// Helper function to render Strapi rich text content
+// Helper: render inline children (text nodes with bold/italic/code/links)
+function renderInline(children: any[]) {
+  if (!Array.isArray(children)) return null;
+
+  return children.map((child: any, idx: number) => {
+    if (typeof child === "string") return child;
+
+    // Simple text node case: { text: "..." , bold: true, italic: true, href: "..." }
+    if (child.text !== undefined) {
+      let node: any = child.text ?? "";
+
+      // Marks/properties (apply in a stable order so nesting is predictable)
+      if (child.code)
+        node = React.createElement(
+          "code",
+          { key: `code-${idx}`, className: "bg-gray-100 px-1 rounded" },
+          node
+        );
+      if (child.bold)
+        node = React.createElement("strong", { key: `strong-${idx}` }, node);
+      if (child.italic)
+        node = React.createElement("em", { key: `em-${idx}` }, node);
+      if (child.underline)
+        node = React.createElement("u", { key: `u-${idx}` }, node);
+      if (child.strike || child.strikethrough)
+        node = React.createElement("s", { key: `s-${idx}` }, node);
+
+      // link variants (href or url)
+      const href =
+        child.href ||
+        child.url ||
+        (child.marks &&
+          child.marks.find((m: any) => m.type === "link")?.attrs?.href);
+      if (href) {
+        node = React.createElement(
+          "a",
+          {
+            key: `a-${idx}`,
+            href,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "text-blue-600 underline",
+          },
+          node
+        );
+      }
+
+      // Also support marks array (some editors use marks[])
+      if (Array.isArray(child.marks)) {
+        child.marks.forEach((m: any, mi: number) => {
+          if (m.type === "bold")
+            node = React.createElement(
+              "strong",
+              { key: `m-${idx}-${mi}` },
+              node
+            );
+          if (m.type === "italic")
+            node = React.createElement("em", { key: `m-${idx}-${mi}` }, node);
+          if (m.type === "code")
+            node = React.createElement(
+              "code",
+              { key: `mcode-${idx}-${mi}` },
+              node
+            );
+          if (m.type === "link" && m.attrs?.href) {
+            node = React.createElement(
+              "a",
+              {
+                key: `mlink-${idx}-${mi}`,
+                href: m.attrs.href,
+                target: "_blank",
+                rel: "noopener noreferrer",
+              },
+              node
+            );
+          }
+        });
+      }
+
+      return React.createElement(React.Fragment, { key: `frag-${idx}` }, node);
+    }
+
+    // Nested blocks inside children (rare) — render recursively
+    if (child.children) {
+      return React.createElement(
+        React.Fragment,
+        { key: `child-${idx}` },
+        renderInline(child.children)
+      );
+    }
+
+    return null;
+  });
+}
+
+// Robust block renderer (drop this in place of your current renderContent)
 function renderContent(content: any[]) {
   if (!Array.isArray(content)) {
     return React.createElement("p", {}, "Content format error - not an array");
   }
 
-  return content.map((block, index) => {
-    switch (block.type) {
+  return content.map((block: any, index: number) => {
+    // tolerant type detection (Strapi / different editors may use different keys)
+    const type =
+      block.type ||
+      block.nodeType ||
+      block.name ||
+      (block.text !== undefined ? "text" : undefined) ||
+      "unknown";
+
+    // handle plain text nodes that some editors send
+    if (type === "text") {
+      if (typeof block.text === "string") {
+        return React.createElement(
+          "p",
+          { key: index, className: "mb-4 leading-relaxed" },
+          block.text
+        );
+      }
+      return React.createElement(
+        "p",
+        { key: index, className: "mb-4 leading-relaxed" },
+        ...(renderInline(block.children ?? block.content ?? []) || [])
+      );
+    }
+
+    switch (type) {
+      case "paragraph": {
+        return React.createElement(
+          "p",
+          { key: index, className: "mb-4 leading-relaxed" },
+          ...(renderInline(block.children ?? block.content ?? []) || [])
+        );
+      }
+
       case "heading": {
-        const headingText =
-          block.children?.map((child: any) => child.text).join("") || "";
         const level = block.level || 2;
-        const Tag = `h${level}`;
+        const Tag = `h${Math.min(Math.max(level, 1), 6)}` as any;
         return React.createElement(
           Tag,
           {
             key: index,
-            className: `font-bold mb-4 mt-6 ${
+            className:
               level === 1
-                ? "text-3xl"
+                ? "text-3xl font-bold mb-4 mt-6"
                 : level === 2
-                ? "text-2xl"
+                ? "text-2xl font-bold mb-4 mt-6"
                 : level === 3
-                ? "text-xl"
-                : level === 4
-                ? "text-lg"
-                : "text-base"
-            }`,
+                ? "text-xl font-bold mb-4 mt-6"
+                : "text-lg font-bold mb-4 mt-6",
           },
-          headingText
-        );
-      }
-
-      case "paragraph": {
-        const paragraphText =
-          block.children?.map((child: any) => child.text).join("") || "";
-        if (!paragraphText.trim()) {
-          return React.createElement("br", { key: index });
-        }
-        return React.createElement(
-          "p",
-          { key: index, className: "mb-4 leading-relaxed" },
-          paragraphText
+          ...(renderInline(block.children ?? block.content ?? []) || [])
         );
       }
 
       case "list": {
-        const isOrdered = block.format === "ordered";
+        const isOrdered =
+          block.format === "ordered" ||
+          block.ordered === true ||
+          block.listType === "ordered";
         const ListTag = isOrdered ? "ol" : "ul";
+
+        const items =
+          Array.isArray(block.children) && block.children.length
+            ? block.children.map((li: any, i: number) => {
+                // li may be a list-item object or a text node
+                if (li.type === "list-item" || li.nodeType === "list-item") {
+                  // list-item can contain paragraph children
+                  const itemContent =
+                    li.children ||
+                    li.content ||
+                    (li.paragraph ? li.paragraph.children : undefined) ||
+                    [];
+                  return React.createElement(
+                    "li",
+                    { key: `li-${index}-${i}`, className: "mb-1" },
+                    ...(renderInline(itemContent) || [])
+                  );
+                }
+
+                // fallback if li is inline text
+                return React.createElement(
+                  "li",
+                  { key: `li-${index}-${i}`, className: "mb-1" },
+                  ...(renderInline(li.children ?? [li]) || [])
+                );
+              })
+            : [];
+
         return React.createElement(
           ListTag,
           {
@@ -179,32 +319,89 @@ function renderContent(content: any[]) {
               ? "list-decimal ml-6 mb-4"
               : "list-disc ml-6 mb-4",
           },
-          block.children?.map(
-            (item: any, i: number) => renderContent([item]) // Render each list-item recursively
-          )
+          items
         );
       }
 
-      case "list-item": {
+      case "list-item":
         return React.createElement(
           "li",
           { key: index, className: "mb-1" },
-          block.children?.map(
-            (child: any) => renderContent([child]) // render paragraphs inside list items
-          )
+          ...(renderInline(block.children ?? block.content ?? []) || [])
+        );
+
+      case "blockquote":
+        return React.createElement(
+          "blockquote",
+          {
+            key: index,
+            className: "border-l-4 pl-4 italic my-4 text-gray-700",
+          },
+          ...(renderInline(block.children ?? block.content ?? []) || [])
+        );
+
+      case "hr":
+      case "divider":
+        return React.createElement("hr", { key: index, className: "my-6" });
+
+      case "code":
+      case "pre":
+      case "code-block": {
+        const codeText =
+          block.code ??
+          block.text ??
+          (block.children && block.children.map((c: any) => c.text).join("")) ??
+          "";
+        return React.createElement(
+          "pre",
+          {
+            key: index,
+            className: "bg-gray-100 p-4 rounded overflow-auto mb-4",
+          },
+          React.createElement("code", {}, codeText)
         );
       }
 
+      case "image":
+      case "media":
+        // attempt to render an img if we can find a url
+        const src =
+          block.url ||
+          block.src ||
+          block.image?.url ||
+          (block.data && block.data.url);
+        if (src) {
+          return React.createElement("img", {
+            key: index,
+            src,
+            alt: block.alt || block.caption || "",
+            className: "max-w-full rounded mb-4",
+          });
+        }
+        break;
+
       default:
+        // Helpful debug fallback — in dev show the raw block so you can inspect shape
+        const preview =
+          process.env.NODE_ENV === "production"
+            ? `Unknown content type: ${type}`
+            : React.createElement(
+                "pre",
+                { className: "bg-yellow-50 p-2 rounded text-sm mb-4" },
+                JSON.stringify(block, null, 2)
+              );
+
         return React.createElement(
           "div",
           {
             key: index,
             className: "mb-4 p-2 bg-yellow-100 border-l-4 border-yellow-500",
           },
-          `Unknown content type: ${block.type}`
+          preview
         );
     }
+
+    return null;
   });
 }
 
