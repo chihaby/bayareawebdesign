@@ -235,11 +235,11 @@ const Footer = () => {
             <b>Sitemap</b>
             <br />
             <ul className={styles.sitemap}>
-              <li>
+              {/* <li>
                 <Link className={styles.link} href="/">
                   Home
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link className={styles.link} href="/about">
                   About
@@ -248,6 +248,11 @@ const Footer = () => {
               <li>
                 <Link className={styles.link} href="/services">
                   Services
+                </Link>
+              </li>
+              <li>
+                <Link className={styles.link} href="/blog">
+                  Blog
                 </Link>
               </li>
               <li>

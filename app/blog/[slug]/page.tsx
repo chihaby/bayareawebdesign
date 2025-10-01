@@ -122,6 +122,7 @@ export async function generateStaticParams() {
 }
 
 // Helper function to render Strapi rich text content
+// Helper function to render Strapi rich text content
 function renderContent(content: any[]) {
   if (!Array.isArray(content)) {
     return React.createElement("p", {}, "Content format error - not an array");
@@ -129,60 +130,32 @@ function renderContent(content: any[]) {
 
   return content.map((block, index) => {
     switch (block.type) {
-      case "heading":
+      case "heading": {
         const headingText =
           block.children?.map((child: any) => child.text).join("") || "";
         const level = block.level || 2;
+        const Tag = `h${level}`;
+        return React.createElement(
+          Tag,
+          {
+            key: index,
+            className: `font-bold mb-4 mt-6 ${
+              level === 1
+                ? "text-3xl"
+                : level === 2
+                ? "text-2xl"
+                : level === 3
+                ? "text-xl"
+                : level === 4
+                ? "text-lg"
+                : "text-base"
+            }`,
+          },
+          headingText
+        );
+      }
 
-        // Use React.createElement to avoid JSX issues
-        if (level === 1) {
-          return React.createElement(
-            "h1",
-            {
-              key: index,
-              className: "text-3xl font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else if (level === 2) {
-          return React.createElement(
-            "h2",
-            {
-              key: index,
-              className: "text-2xl font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else if (level === 3) {
-          return React.createElement(
-            "h3",
-            {
-              key: index,
-              className: "text-xl font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else if (level === 4) {
-          return React.createElement(
-            "h4",
-            {
-              key: index,
-              className: "text-lg font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else {
-          return React.createElement(
-            "h5",
-            {
-              key: index,
-              className: "text-base font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        }
-
-      case "paragraph":
+      case "paragraph": {
         const paragraphText =
           block.children?.map((child: any) => child.text).join("") || "";
         if (!paragraphText.trim()) {
@@ -190,12 +163,37 @@ function renderContent(content: any[]) {
         }
         return React.createElement(
           "p",
-          {
-            key: index,
-            className: "mb-4 leading-relaxed",
-          },
+          { key: index, className: "mb-4 leading-relaxed" },
           paragraphText
         );
+      }
+
+      case "list": {
+        const isOrdered = block.format === "ordered";
+        const ListTag = isOrdered ? "ol" : "ul";
+        return React.createElement(
+          ListTag,
+          {
+            key: index,
+            className: isOrdered
+              ? "list-decimal ml-6 mb-4"
+              : "list-disc ml-6 mb-4",
+          },
+          block.children?.map(
+            (item: any, i: number) => renderContent([item]) // Render each list-item recursively
+          )
+        );
+      }
+
+      case "list-item": {
+        return React.createElement(
+          "li",
+          { key: index, className: "mb-1" },
+          block.children?.map(
+            (child: any) => renderContent([child]) // render paragraphs inside list items
+          )
+        );
+      }
 
       default:
         return React.createElement(

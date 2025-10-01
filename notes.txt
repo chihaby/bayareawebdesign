@@ -6,3 +6,94 @@ https://cloud.strapi.io/projects/bawd-98e1131d93/production/deployments
 
 Admin panel
 https://loved-pleasure-cb5eab8cd5.strapiapp.com/admin
+
+slug/page line 125
+working renderContent function
+
+function renderContent(content: any[]) {
+  if (!Array.isArray(content)) {
+    return React.createElement("p", {}, "Content format error - not an array");
+  }
+
+  return content.map((block, index) => {
+    switch (block.type) {
+      case "heading":
+        const headingText =
+          block.children?.map((child: any) => child.text).join("") || "";
+        const level = block.level || 2;
+
+        // Use React.createElement to avoid JSX issues
+        if (level === 1) {
+          return React.createElement(
+            "h1",
+            {
+              key: index,
+              className: "text-3xl font-bold mb-4 mt-6",
+            },
+            headingText
+          );
+        } else if (level === 2) {
+          return React.createElement(
+            "h2",
+            {
+              key: index,
+              className: "text-2xl font-bold mb-4 mt-6",
+            },
+            headingText
+          );
+        } else if (level === 3) {
+          return React.createElement(
+            "h3",
+            {
+              key: index,
+              className: "text-xl font-bold mb-4 mt-6",
+            },
+            headingText
+          );
+        } else if (level === 4) {
+          return React.createElement(
+            "h4",
+            {
+              key: index,
+              className: "text-lg font-bold mb-4 mt-6",
+            },
+            headingText
+          );
+        } else {
+          return React.createElement(
+            "h5",
+            {
+              key: index,
+              className: "text-base font-bold mb-4 mt-6",
+            },
+            headingText
+          );
+        }
+
+      case "paragraph":
+        const paragraphText =
+          block.children?.map((child: any) => child.text).join("") || "";
+        if (!paragraphText.trim()) {
+          return React.createElement("br", { key: index });
+        }
+        return React.createElement(
+          "p",
+          {
+            key: index,
+            className: "mb-4 leading-relaxed",
+          },
+          paragraphText
+        );
+
+      default:
+        return React.createElement(
+          "div",
+          {
+            key: index,
+            className: "mb-4 p-2 bg-yellow-100 border-l-4 border-yellow-500",
+          },
+          `Unknown content type: ${block.type}`
+        );
+    }
+  });
+}
