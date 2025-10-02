@@ -186,7 +186,7 @@ function renderContent(content: any[]): React.ReactNode {
       case "heading": {
         const level = block.level || 2;
         const text = renderInline(block.children || []);
-        const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+        const Tag: any = `h${level}`;
         return (
           <Tag key={index} className="font-bold mt-6 mb-2">
             {text}

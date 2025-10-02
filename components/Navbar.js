@@ -21,18 +21,18 @@ export default function Navbar() {
                 <span className={styles.title}>Bay Area Web Design</span>
               </Link>
             </li>
-            <li className={styles.ul_links}>
+            {/* <li className={styles.ul_links}>
               <Link href="/">Home</Link>
-            </li>
+            </li> */}
             <li className={styles.ul_links}>
               <Link href="/about">About</Link>
             </li>
             <li className={styles.ul_links}>
               <Link href="/services">Services</Link>
             </li>
-            {/* <li className={styles.ul_links}>
+            <li className={styles.ul_links}>
               <Link href="/blog">Blog</Link>
-            </li> */}
+            </li>
             <li className={styles.ul_links}>
               <Link href="/contact">Contact</Link>
             </li>
