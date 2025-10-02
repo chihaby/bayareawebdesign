@@ -121,89 +121,111 @@ export async function generateStaticParams() {
   }
 }
 
-function renderContent(content: any[]) {
+function renderInline(children: any[]): React.ReactNode[] {
+  if (!Array.isArray(children)) return [];
+
+  return children.map((child: any, idx: number): React.ReactNode => {
+    // 1. Handle plain text node
+    if (child.type === "text") {
+      let node: React.ReactNode = child.text ?? "";
+
+      if (child.bold) node = <strong key={`bold-${idx}`}>{node}</strong>;
+      if (child.italic) node = <em key={`italic-${idx}`}>{node}</em>;
+      if (child.underline) node = <u key={`underline-${idx}`}>{node}</u>;
+      if (child.strike || child.strikethrough)
+        node = <s key={`s-${idx}`}>{node}</s>;
+      if (child.code)
+        node = (
+          <code key={`code-${idx}`} className="bg-gray-100 px-1 rounded">
+            {node}
+          </code>
+        );
+
+      return <React.Fragment key={`frag-${idx}`}>{node}</React.Fragment>;
+    }
+
+    // 2. Handle links
+    if (child.type === "link") {
+      return (
+        <a
+          key={`link-${idx}`}
+          href={child.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#2563eb", // Tailwind's blue-600
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+        >
+          {renderInline(child.children || [])}
+        </a>
+      );
+    }
+
+    // 3. Fallback: render children recursively
+    if (child.children) {
+      return (
+        <React.Fragment key={`child-${idx}`}>
+          {renderInline(child.children)}
+        </React.Fragment>
+      );
+    }
+
+    return null;
+  });
+}
+
+function renderContent(content: any[]): React.ReactNode {
   if (!Array.isArray(content)) {
-    return React.createElement("p", {}, "Content format error - not an array");
+    return <p>Content format error - not an array</p>;
   }
 
   return content.map((block, index) => {
     switch (block.type) {
-      case "heading":
-        const headingText =
-          block.children?.map((child: any) => child.text).join("") || "";
+      case "heading": {
         const level = block.level || 2;
-
-        // Use React.createElement to avoid JSX issues
-        if (level === 1) {
-          return React.createElement(
-            "h1",
-            {
-              key: index,
-              className: "text-3xl font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else if (level === 2) {
-          return React.createElement(
-            "h2",
-            {
-              key: index,
-              className: "text-2xl font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else if (level === 3) {
-          return React.createElement(
-            "h3",
-            {
-              key: index,
-              className: "text-xl font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else if (level === 4) {
-          return React.createElement(
-            "h4",
-            {
-              key: index,
-              className: "text-lg font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        } else {
-          return React.createElement(
-            "h5",
-            {
-              key: index,
-              className: "text-base font-bold mb-4 mt-6",
-            },
-            headingText
-          );
-        }
+        const text = renderInline(block.children || []);
+        const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+        return (
+          <Tag key={index} className="font-bold mt-6 mb-2">
+            {text}
+          </Tag>
+        );
+      }
 
       case "paragraph":
-        const paragraphText =
-          block.children?.map((child: any) => child.text).join("") || "";
-        if (!paragraphText.trim()) {
-          return React.createElement("br", { key: index });
-        }
-        return React.createElement(
-          "p",
-          {
-            key: index,
-            className: "mb-4 leading-relaxed",
-          },
-          paragraphText
+        return (
+          <p key={index} className="mb-4 leading-relaxed">
+            {renderInline(block.children || [])}
+          </p>
         );
 
+      case "list": {
+        const isOrdered = block.format === "ordered";
+        const ListTag = isOrdered ? "ol" : "ul";
+        return (
+          <ListTag
+            key={index}
+            className={
+              isOrdered ? "list-decimal ml-6 mb-4" : "list-disc ml-6 mb-4"
+            }
+          >
+            {block.children?.map((item: any, i: number) => (
+              <li key={i}>{renderInline(item.children || [])}</li>
+            ))}
+          </ListTag>
+        );
+      }
+
       default:
-        return React.createElement(
-          "div",
-          {
-            key: index,
-            className: "mb-4 p-2 bg-yellow-100 border-l-4 border-yellow-500",
-          },
-          `Unknown content type: ${block.type}`
+        return (
+          <div
+            key={index}
+            className="mb-4 p-2 bg-yellow-100 border-l-4 border-yellow-500"
+          >
+            Unknown content type: {block.type}
+          </div>
         );
     }
   });
