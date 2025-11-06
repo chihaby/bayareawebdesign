@@ -47,7 +47,7 @@ Meta.defaultProps = {
     "payment processing",
   ],
   description:
-    "Website Remedy is a web design agency located in the Bay Area of San Francisco, California. We build custom websites from scratch with a focus on performance, design, and user experience UI/UX. We helped hundreds of clients all over the world reach their goal of having the best quality website for their business.",
+    "Bay Area Web Design is a web design agency located in the Bay Area of San Francisco, California. We build custom websites from scratch with a focus on performance, design, and user experience UI/UX. We helped hundreds of clients all over the world reach their goal of having the best quality website for their business.",
 };
 
 export default Meta;

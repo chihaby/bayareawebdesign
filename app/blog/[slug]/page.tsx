@@ -121,6 +121,7 @@ export async function generateStaticParams() {
   }
 }
 
+// Helper function to render Strapi rich text content
 function renderInline(children: any[]): React.ReactNode[] {
   if (!Array.isArray(children)) return [];
 
