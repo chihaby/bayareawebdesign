@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer.js";
 import blitz from "../../public/img/blitz.png";
 import pizza from "../../public/img/pizza.png";
+import wellington from "../../public/assets/img/wellington.png";
 // import oceo from "../../public/img/oceo.png";
 import ebpt from "../../public/img/ebpt.png";
 import cafelisbon from "../../public/img/cafelisbon.png";
@@ -38,6 +39,46 @@ const services = () => {
           <br />
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
+              <h2>Property Management</h2>
+              <br />
+              <Card.Text>
+                A trusted property management company with 15 years of service
+                in the Bay Area. With focus on simplifying the rental experience
+                for owners and tenants alike, ensuring every property is
+                well-maintained, efficiently managed, and consistently
+                profitable. From tenant screening to rent collection, our
+                dedicated team handles every detail so you can enjoy peace of
+                mind and maximize your investment.
+              </Card.Text>
+            </Col>
+            <Col sm={12} md={6} lg={6}>
+              <a
+                href="https://wellington-pied.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "#444444" }}
+              >
+                <div>
+                  <Card>
+                    <Image
+                      src={wellington}
+                      alt="photo of wellington website hero section"
+                    />
+                    <Card.Body>
+                      <Card.Title>Wellington/CMA</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </div>
+              </a>
+            </Col>
+          </Row>
+          <br />
+          <br />
+          <hr />
+          <br />
+          <br />
+          <Row className="justify-content-md-center">
+            <Col sm={12} md={6} lg={6}>
               <a
                 href="https://www.blitzdetail.com/"
                 target="_blank"
@@ -52,10 +93,10 @@ const services = () => {
                     />
                     <Card.Body>
                       <Card.Title>Blitz Auto Wash & Detail</Card.Title>
-                      <Card.Text>
+                      {/* <Card.Text>
                         A la carte business model for any business looking to
                         present a selection of prices and services
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Body></Card.Body>
                   </Card>
@@ -114,10 +155,10 @@ const services = () => {
                   <Card>
                     <Image src={ebpt} alt="East Bay Paratransit bus" />
                     <Card.Body>
-                      <Card.Title>East Bay Transit</Card.Title>
-                      <Card.Text>
+                      <Card.Title>East Bay Paratransit</Card.Title>
+                      {/* <Card.Text>
                         Public transit service for people with disabilities.
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Body></Card.Body>
                   </Card>
@@ -143,10 +184,10 @@ const services = () => {
                     <Image src={cafelisbon} alt="Cafe Lisbon" />
                     <Card.Body>
                       <Card.Title>Cafe Lisbon</Card.Title>
-                      <Card.Text>
+                      {/* <Card.Text>
                         Hand picked artisan coffee, locally sourced ingredients,
                         ensuring premium quality.
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Body></Card.Body>
                   </Card>
@@ -207,10 +248,10 @@ const services = () => {
                     />
                     <Card.Body>
                       <Card.Title>{"Slick Slices"}</Card.Title>
-                      <Card.Text>
+                      {/* <Card.Text>
                         Restaurant model featuring menu, daily special and order
                         submition
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Body></Card.Body>
                   </Card>
@@ -236,10 +277,10 @@ const services = () => {
                     <Image src={mn} alt="mediterranean nights azure" />
                     <Card.Body>
                       <Card.Title>Mucisian/Band</Card.Title>
-                      <Card.Text>
+                      {/* <Card.Text>
                         The band model is for artists who want to showcase their
                         work and links to where to buy.
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Body></Card.Body>
                   </Card>
@@ -300,10 +341,10 @@ const services = () => {
                     <Image src={about} alt="portfolio website" />
                     <Card.Body>
                       <Card.Title>Portfolio</Card.Title>
-                      <Card.Text>
+                      {/* <Card.Text>
                         The portfolio model is for professionals who want to
                         showcase their skills and services.
-                      </Card.Text>
+                      </Card.Text> */}
                     </Card.Body>
                     <Card.Body></Card.Body>
                   </Card>

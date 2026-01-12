@@ -91,9 +91,14 @@
     flex-wrap: nowrap;
     justify-content: space-between;
   }
-
   .navbar li {
     flex-basis: auto;
+  }
+  .a {
+    display: inline-block;
+    padding: 0.5rem;
+    text-decoration: underline;
+    background: white;
   }
 }
 
@@ -122,7 +127,6 @@
     text-align: center;
     box-shadow: none;
   }
-
   .navbar a:hover {
     background-color: transparent;
     text-decoration: underline;
@@ -130,7 +134,6 @@
     text-decoration-thickness: 2.5px;
     transition: 150ms;
   }
-
   .navbar li:first-child {
     margin-top: -10px;
     margin-right: auto;
@@ -138,7 +141,6 @@
     flex-basis: auto;
     color: var(--primary_color);
   }
-
   .ul_links {
     padding-top: 10px;
   }
