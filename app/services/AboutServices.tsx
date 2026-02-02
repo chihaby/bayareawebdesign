@@ -53,7 +53,7 @@ const services = () => {
             </Col>
             <Col sm={12} md={6} lg={6}>
               <a
-                href="https://wellington-pied.vercel.app/"
+                href="https://www.wellingtoncma.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none", color: "#444444" }}
