@@ -39,7 +39,7 @@ const services = () => {
           <br />
           <Row className="justify-content-md-center">
             <Col sm={12} md={6} lg={6}>
-              <h2>Property Management</h2>
+              <h2>Parking Management</h2>
               <br />
               <Card.Text>
                 A trusted property management company with 15 years of service
