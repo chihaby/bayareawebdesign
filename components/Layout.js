@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Meta from "./Meta";
+import Annoucement from "./Annoucement";
 import Hero from "./Hero";
 import Benefit from "./Benefit";
 import Service from "./Services";
@@ -16,6 +17,7 @@ const Layout = () => {
       minBreakpoint="sm"
     >
       <Meta />
+      <Annoucement />
       <Navbar />
       <Hero />
       <Benefit />
